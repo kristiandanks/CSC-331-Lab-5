@@ -19,7 +19,7 @@ public class ElectronicsItem extends StoreItem {
      */
     public ElectronicsItem(double price, String section, String brand, String name, String returnPolicy,
                            int wattage, String screenType){
-        super(double price, String section, String brand, String name, String returnPolicy)
+        super(price, section, brand, name, returnPolicy);
         this.wattage = wattage;
         this.screenType = screenType;
     }
