@@ -50,7 +50,7 @@ public class FoodItem extends StoreItem {
      *
      * @return nutritionFacts String
      */
-    public int getNutritionFacts(){
+    public String getNutritionFacts(){
 
         return this.nutritionFacts;
     }
