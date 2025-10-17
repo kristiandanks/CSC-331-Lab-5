@@ -1,3 +1,5 @@
+package StoreItem;
+
 public class StoreItem {
     //initializing variables
     private double price;

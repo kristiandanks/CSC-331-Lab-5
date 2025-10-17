@@ -1,4 +1,4 @@
-package HouseholdItem;
+package StoreItem.HouseholdItem;
 
 public class CleaningSupply {
 }
