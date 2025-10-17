@@ -80,5 +80,4 @@ public class FoodItem extends StoreItem {
     public void setNutritionFacts(String nutritionFacts){
         this.nutritionFacts = nutritionFacts;
     }
-
 }
