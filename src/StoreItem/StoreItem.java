@@ -28,35 +28,35 @@ public class StoreItem {
     //Getters
 
     /**
-     * returns price double
+     * @return price double
      */
     public double getPrice(){
         return price;
     }
 
     /**
-     * returns section String
+     * @return section String
      */
     public String getSection(){
         return section;
     }
 
     /**
-     * returns brand String
+     * @return brand String
      */
     public String getBrand(){
         return brand;
     }
 
     /**
-     * return name String
+     * @return name String
      */
     public String getName(){
         return name;
     }
 
     /**
-     * returns returnPolicy String
+     * @return returnPolicy String
      */
     public String getReturnPolicy(){
         return returnPolicy;
