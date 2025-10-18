@@ -32,6 +32,11 @@ public class Phone extends ElectronicsItem{
     }
 
     //Setter
+
+    /**
+     *
+     * @param numOfCameras int
+     */
     public void setNumOfCameras(int numOfCameras){
         this.numOfCameras = numOfCameras;
     }
