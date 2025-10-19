@@ -32,7 +32,8 @@ public class FoodItem extends StoreItem {
     //Getters
     /**
      *
-     * @return expirationDate int
+     * @return expirationDate int4
+     *
      */
     public int getExpirationDate(){
         return this.expirationDate;
