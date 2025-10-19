@@ -32,7 +32,7 @@ public class FoodItem extends StoreItem {
     //Getters
     /**
      *
-     * @return expirationDate int4
+     * @return expirationDate int
      *
      */
     public int getExpirationDate(){
@@ -76,7 +76,7 @@ public class FoodItem extends StoreItem {
 
     /**
      *
-     * @param nutritionFacts boolean
+     * @param nutritionFacts String
      */
     public void setNutritionFacts(String nutritionFacts){
         this.nutritionFacts = nutritionFacts;
