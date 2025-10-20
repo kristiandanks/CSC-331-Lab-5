@@ -5,7 +5,7 @@ import StoreItem.StoreItem;
 
 public class FoodItem extends StoreItem {
     //Initializing variables
-    private int expirationDate;
+    private String expirationDate;
     private boolean organic;
     private String nutritionFacts;
 
@@ -22,7 +22,7 @@ public class FoodItem extends StoreItem {
      */
 
     public FoodItem(double price, String section, String brand, String name, String returnPolicy,
-                    int expirationDate, boolean organic, String nutritionFacts) {
+                    String expirationDate, boolean organic, String nutritionFacts) {
         super(price, section, brand, name, returnPolicy);
         this.expirationDate = expirationDate;
         this.organic = organic;
@@ -35,7 +35,7 @@ public class FoodItem extends StoreItem {
      * @return expirationDate int
      *
      */
-    public int getExpirationDate(){
+    public String getExpirationDate(){
         return this.expirationDate;
     }
 

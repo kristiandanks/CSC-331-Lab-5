@@ -20,6 +20,12 @@ public class ElectronicsItem extends StoreItem {
     public ElectronicsItem(double price, String section, String brand, String name, String returnPolicy,
                            int wattage, String screenType){
         super(price, section, brand, name, returnPolicy);
+
+        //validating wattage input
+        if (wattage <= 0){
+            throw new IllegalArgumentException("Wattage must be an integer greater than 0.");
+        }
+
         this.wattage = wattage;
         this.screenType = screenType;
     }
@@ -48,6 +54,12 @@ public class ElectronicsItem extends StoreItem {
      * @param wattage int
      */
     public void setWattage(int wattage){
+
+        //validating wattage input
+        if (wattage <= 0){
+            throw new IllegalArgumentException("Wattage must be an integer greater than 0.");
+        }
+
         this.wattage = wattage;
     }
 

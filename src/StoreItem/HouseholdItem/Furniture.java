@@ -21,6 +21,12 @@ public class Furniture extends HouseholdItem {
     public Furniture(double price, String section, String brand, String name, String returnPolicy
             , String volume, String intendedUse, double weight, String material) {
         super(price, section, brand, name, returnPolicy, volume, intendedUse);
+
+        //validating weight input
+        if (weight <= 0){
+            throw new IllegalArgumentException("The weight of the furniture must be a number greater than or equal to 0.");
+        }
+
         this.weight = weight;
         this.material = material;
     }
@@ -50,6 +56,10 @@ public class Furniture extends HouseholdItem {
      * @param weight double
      */
     public void setWeight(double weight){
+        //validating weight input
+        if (weight <= 0){
+            throw new IllegalArgumentException("Weight must be a number greater than 0.");
+        }
         this.weight = weight;
     }
 

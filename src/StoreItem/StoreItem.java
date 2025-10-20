@@ -18,6 +18,12 @@ public class StoreItem {
      * @param returnPolicy String
      */
     public StoreItem(double price, String section, String brand, String name, String returnPolicy){
+
+        //validating price input
+        if (price < 0){
+            throw new IllegalArgumentException("Price must be a number greater than or equal to 0.");
+        }
+
         this.price = price;
         this.section = section;
         this.brand = brand;

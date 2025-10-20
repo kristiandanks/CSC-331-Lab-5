@@ -23,9 +23,12 @@ public class Laptop extends ElectronicsItem{
     public Laptop(double price, String section, String brand, String name, String returnPolicy, int wattage, String screenType,
                   String cpu, boolean touchScreen, int numOfPorts){
         super(price, section, brand, name, returnPolicy, wattage, screenType);
+
+        //validating numOfPorts input
         if (numOfPorts < 0) {
             throw new IllegalArgumentException("Number of ports must be an integer greater than or equal to zero.");
         }
+
         this.cpu = cpu;
         this.touchScreen = touchScreen;
         this.numOfPorts = numOfPorts;
@@ -78,6 +81,11 @@ public class Laptop extends ElectronicsItem{
      * @param numOfPorts int
      */
     public void setNumOfPorts(int numOfPorts){
+        //validating numOfPorts input
+        if (numOfPorts < 0){
+            throw new IllegalArgumentException("Number of ports must be a number greater than or equal to 0.");
+        }
+
         this.numOfPorts = numOfPorts;
     }
 

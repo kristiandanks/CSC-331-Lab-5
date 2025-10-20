@@ -20,6 +20,12 @@ public class Phone extends ElectronicsItem {
     public Phone(double price, String section, String brand, String name, String returnPolicy,
                  int wattage, String screenType, int numOfCameras) {
         super(price, section, brand, name, returnPolicy, wattage, screenType);
+
+        //validating numOfCameras input
+        if (numOfCameras < 0){
+            throw new IllegalArgumentException("The number of cameras must be an integer greater than or equal to 0.");
+        }
+
         this.numOfCameras = numOfCameras;
 
     }
@@ -42,6 +48,11 @@ public class Phone extends ElectronicsItem {
      */
 
     public void setNumOfCameras(int numOfCameras) {
+        //validating number of cameras input
+        if (numOfCameras <0){
+            throw new IllegalArgumentException("Number of cameras must be a number greater than or equal to zero.");
+        }
+
         this.numOfCameras = numOfCameras;
     }
 
