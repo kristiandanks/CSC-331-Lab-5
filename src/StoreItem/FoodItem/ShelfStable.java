@@ -18,7 +18,7 @@ public class ShelfStable extends FoodItem {
      */
 
     public ShelfStable(double price, String section, String brand, String name, String returnPolicy,
-                 int expirationDate, boolean organic, String nutritionFacts, String boxedOrCanned) {
+                 String expirationDate, boolean organic, String nutritionFacts, String boxedOrCanned) {
         super(price, section, brand, name, returnPolicy, expirationDate, organic, nutritionFacts);
         this.boxedOrCanned = boxedOrCanned;
     }

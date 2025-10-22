@@ -20,7 +20,7 @@ public class Fruit extends FoodItem {
      */
 
     public Fruit(double price, String section, String brand, String name, String returnPolicy,
-                    int expirationDate, boolean organic, String nutritionFacts, boolean isBerry) {
+                    String expirationDate, boolean organic, String nutritionFacts, boolean isBerry) {
         super(price, section, brand, name, returnPolicy, expirationDate, organic, nutritionFacts);
         this.isBerry = isBerry;
     }

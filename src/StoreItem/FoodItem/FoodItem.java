@@ -62,7 +62,7 @@ public class FoodItem extends StoreItem {
      *
      * @param expirationDate int
      */
-    public void setExpirationDate(int expirationDate){
+    public void setExpirationDate(String expirationDate){
         this.expirationDate = expirationDate;
     }
 

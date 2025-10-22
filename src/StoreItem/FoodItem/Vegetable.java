@@ -18,7 +18,7 @@ public class Vegetable extends FoodItem {
      */
 
     public Vegetable(double price, String section, String brand, String name, String returnPolicy,
-                 int expirationDate, boolean organic, String nutritionFacts, boolean isLeafy) {
+                 String expirationDate, boolean organic, String nutritionFacts, boolean isLeafy) {
         super(price, section, brand, name, returnPolicy, expirationDate, organic, nutritionFacts);
         this.isLeafy = isLeafy;
     }
