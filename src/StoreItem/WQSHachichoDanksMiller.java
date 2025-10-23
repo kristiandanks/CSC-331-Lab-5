@@ -616,6 +616,7 @@ public class WQSHachichoDanksMiller{
     }
 
     // Helper functions for reusiblity
+
     static class CommonFields {
         double itemPrice;
         String itemSection;
@@ -623,6 +624,12 @@ public class WQSHachichoDanksMiller{
         String itemName;
         String itemReturnPolicy;
     }
+
+    /**
+     *
+     * @param scanner
+     * @return the commonily ask fields
+     */
     static CommonFields promptCommonFields(Scanner scanner) {
         CommonFields f = new CommonFields();
 
@@ -646,4 +653,17 @@ public class WQSHachichoDanksMiller{
         return f;
     }
 
+    /**
+     *
+     * @param scanner
+     * @param prompt
+     * @return "y"
+     */
+
+    // WIP
+    static boolean askYesNo(Scanner scanner, String prompt) {
+        System.out.println(prompt + " (y/n)");
+        String input = scanner.nextLine().trim().toLowerCase();
+        return input.equals("y");
+    }
 }
