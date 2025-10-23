@@ -1,7 +1,7 @@
-package StoreItem;
+package StoreItem.ElectronicsItem;
 
 
-public class Laptop extends ElectronicsItem{
+public class Laptop extends ElectronicsItem {
     //initializing variables
     String cpu;
     boolean touchScreen;

@@ -1,4 +1,6 @@
-package StoreItem;
+package StoreItem.ClothingItem;
+
+import StoreItem.StoreItem;
 
 public class ClothingItem extends StoreItem {
     //Initializing variables

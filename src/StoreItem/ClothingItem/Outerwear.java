@@ -1,6 +1,6 @@
-package StoreItem;
+package StoreItem.ClothingItem;
 
-public class Outerwear extends ClothingItem{
+public class Outerwear extends ClothingItem {
     //Initializing variable
     private boolean hasZipper;
 
