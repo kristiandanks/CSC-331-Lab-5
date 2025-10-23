@@ -1,4 +1,4 @@
-package StoreItem;
+package StoreItem.FoodItem;
 
 
 public class Fruit extends FoodItem {

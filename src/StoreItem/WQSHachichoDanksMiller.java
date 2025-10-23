@@ -8,6 +8,17 @@ package StoreItem;
  * @date 09/25/2025
  * @section CSC-331-003
  */
+import StoreItem.ClothingItem.ClothingItem;
+import StoreItem.ElectronicsItem.ElectronicsItem;
+import StoreItem.ElectronicsItem.Laptop;
+import StoreItem.ElectronicsItem.Phone;
+import StoreItem.ElectronicsItem.TV;
+import StoreItem.FoodItem.FoodItem;
+import StoreItem.FoodItem.Fruit;
+import StoreItem.FoodItem.ShelfStable;
+import StoreItem.FoodItem.Vegetable;
+import StoreItem.HouseholdItem.HouseholdItem;
+
 import java.util.Scanner;
 import java.util.ArrayList;
 

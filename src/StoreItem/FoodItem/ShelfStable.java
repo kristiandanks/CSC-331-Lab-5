@@ -1,4 +1,4 @@
-package StoreItem;
+package StoreItem.FoodItem;
 
 public class ShelfStable extends FoodItem {
     //Initializing variable

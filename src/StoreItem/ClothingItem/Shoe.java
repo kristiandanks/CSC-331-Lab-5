@@ -1,6 +1,6 @@
-package StoreItem;
+package StoreItem.ClothingItem;
 
-public class Shoe extends ClothingItem{
+public class Shoe extends ClothingItem {
     //Initializing variable
     private String shoeType;
 

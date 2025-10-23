@@ -1,4 +1,6 @@
-package StoreItem;
+package StoreItem.HouseholdItem;
+
+import StoreItem.StoreItem;
 
 public class HouseholdItem extends StoreItem {
     //Initializing variables
