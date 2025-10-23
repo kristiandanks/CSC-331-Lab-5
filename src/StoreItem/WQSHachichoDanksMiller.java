@@ -304,27 +304,6 @@ public class WQSHachichoDanksMiller{
                                     int newItemType = scanner.nextInt();
                                     scanner.nextLine();
 
-                                    //getting price and round it to two decimal places
-                                    System.out.println("How much is your item going to cost?");
-                                    double itemPrice = Math.round(scanner.nextDouble() * 100) / 100;
-                                    scanner.nextLine();
-
-                                    //getting section for item
-                                    System.out.println("What section/aisle would your item be found on (e.g. A19)?");
-                                    String itemSection = scanner.nextLine();
-
-                                    //getting brand of item
-                                    System.out.println("What is the brand of the item?");
-                                    String itemBrand = scanner.nextLine();
-
-                                    //getting name of item
-                                    System.out.println("What is the name of the item?");
-                                    String itemName = scanner.nextLine();
-
-                                    //getting return policy of item
-                                    System.out.println("What is the item's return policy?");
-                                    String itemReturnPolicy = scanner.nextLine();
-
                                     //getting wattage of item
                                     System.out.println("What is the wattage of the item (in Watts)?");
                                     int itemWattage = scanner.nextInt();
@@ -333,7 +312,7 @@ public class WQSHachichoDanksMiller{
                                     //getting type of screen
                                     System.out.println("What is the screen type of the device?");
                                     String itemScreenType = scanner.nextLine();
-
+                                    CommonFields base = promptCommonFields(scanner);
                                     //branching logic based on new item type
                                     switch (newItemType)
                                     {
@@ -362,7 +341,7 @@ public class WQSHachichoDanksMiller{
                                             int itemNumOfPorts = scanner.nextInt();
                                             scanner.nextLine();
 
-                                            Laptop newItem = new Laptop(itemPrice, itemSection, itemBrand, itemName, itemReturnPolicy, itemWattage, itemScreenType, itemCpu, itemTouchscreen, itemNumOfPorts);
+                                            Laptop newItem = new Laptop(base.itemPrice, base.itemSection, base.itemBrand, base.itemName, base.itemReturnPolicy, itemWattage, itemScreenType, itemCpu, itemTouchscreen, itemNumOfPorts);
                                             electronicsItemInventory.add(newItem);
                                             break;
                                         //User chooses to add new TV
@@ -403,7 +382,7 @@ public class WQSHachichoDanksMiller{
                                             }
 
                                             //this is using polymorphism to add an instance of the TV class to an ArrayList of electronics items
-                                            TV newTV = new TV(itemPrice, itemSection, itemBrand, itemName, itemReturnPolicy, itemWattage, itemScreenType, itemIsSmart, itemIsFlatscreen, itemSurroundSound);
+                                            TV newTV = new TV(base.itemPrice, base.itemSection, base.itemBrand, base.itemName, base.itemReturnPolicy, itemWattage, itemScreenType, itemIsSmart, itemIsFlatscreen, itemSurroundSound);
                                             electronicsItemInventory.add(newTV);
                                             break;
                                         //User chooses to add new phone
@@ -414,7 +393,7 @@ public class WQSHachichoDanksMiller{
                                             scanner.nextLine();
 
                                             //this is using polymorphism to add an instance of the Phone class to an ArrayList of electronics items
-                                            Phone newPhone = new Phone(itemPrice, itemSection, itemBrand, itemName, itemReturnPolicy, itemWattage, itemScreenType, itemNumOfCameras);
+                                            Phone newPhone = new Phone(base.itemPrice, base.itemSection, base.itemBrand, base.itemName, base.itemReturnPolicy, itemWattage, itemScreenType, itemNumOfCameras);
                                             electronicsItemInventory.add(newPhone);
                                             break;
                                     }
@@ -614,9 +593,7 @@ public class WQSHachichoDanksMiller{
             }
         }
     }
-
-    // Helper functions for reusiblity
-
+    // Helper functions for reusability
     static class CommonFields {
         double itemPrice;
         String itemSection;
@@ -632,21 +609,16 @@ public class WQSHachichoDanksMiller{
      */
     static CommonFields promptCommonFields(Scanner scanner) {
         CommonFields f = new CommonFields();
-
         // getting price and round it to two decimal places
         System.out.println("How much is your item going to cost?");
         f.itemPrice = Math.round(scanner.nextDouble() * 100) / 100.0;
         scanner.nextLine();
-
         System.out.println("What section/aisle would your item be found on (e.g. A19)?");
         f.itemSection = scanner.nextLine();
-
         System.out.println("What is the brand of the item?");
         f.itemBrand = scanner.nextLine();
-
         System.out.println("What is the name of the item?");
         f.itemName = scanner.nextLine();
-
         System.out.println("What is the item's return policy?");
         f.itemReturnPolicy = scanner.nextLine();
 
@@ -659,7 +631,6 @@ public class WQSHachichoDanksMiller{
      * @param prompt
      * @return "y"
      */
-
     // WIP
     static boolean askYesNo(Scanner scanner, String prompt) {
         System.out.println(prompt + " (y/n)");
