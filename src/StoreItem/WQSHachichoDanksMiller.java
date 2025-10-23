@@ -285,6 +285,84 @@ public class WQSHachichoDanksMiller{
                                 }
                             } while (continueAdding);
                             break;
+                        //user chooses to add electronics item
+                        case 2:
+                            //displaying inventory
+                            System.out.println("The food items inventory currently contains: ");
+                            for (ElectronicsItem item: electronicsItemInventory){
+                                System.out.println(item.getName());
+                            }
+                            //initialzing variable for do-while condition
+                            boolean continueAdding;
+                            do {
+                                //receiving user input to add existing items or create new ones
+                                System.out.printf("What would you like to do:%n1) Add more of an existing item already in the list%n2) Create a new item to add to the list%n");
+                                int addCreateSelection = scanner.nextInt();
+
+                                //add more of an existing item
+                                if (addCreateSelection == 1) {
+                                    //ask what existing item to add
+                                    System.out.println("Please input the name of the item you would like to add more of.");
+                                    String addItemName = scanner.nextLine();
+
+                                    //iterate through list to find desired item
+                                    for (ElectronicsItem item : electronicsItemInventory) {
+                                        //desired item found
+                                        if (item.getName() == addItemName) {
+                                            electronicsItemInventory.add(item); //adding another instance of the item to the inventory
+                                            break; //stop the loop
+                                        }
+                                    }
+                            }   } else {
+                            //user is creating a new item, ask which type
+                            System.out.printf("Which item type would you like to create:%n1) Laptop%n2) TV%n3) Phone%n");
+                            int newItemType = scanner.nextInt();
+
+                            //getting price and round it to two decimal places
+                            System.out.println("How much is your fruit going to cost?");
+                            double itemPrice = Math.round(scanner.nextDouble() * 100) /100;
+                            scanner.nextLine();
+
+                            //getting section for item
+                            System.out.println("What section/aisle would your item be found on (e.g. A19)?");
+                            String itemSection = scanner.nextLine();
+
+                            //getting brand of item
+                            System.out.println("What is the brand of the item?");
+                            String itemBrand = scanner.nextLine();
+
+                            //getting name of item
+                            System.out.println("What is the name of the item?");
+                            String itemName = scanner.nextLine();
+
+                            //getting return policy of item
+                            System.out.println("What is the item's return policy?");
+                            String itemReturnPolicy = scanner.nextLine();
+
+                            //branching logic based on new item type
+                            switch (newItemType){
+                                //initializing boolean variables that are assigned in conditionals
+                                boolean touchscreen;
+                                //user chooses to add new laptop
+                                case 1:
+                                    //getting cpu of the laptop from the user
+                                    System.out.println("Please provide the cpu of the laptop: ");
+                                    String itemCpu = scanner.nextLine();
+
+                                    //getting if laptop is touchscreen or not
+                                    System.out.println("Is the laptop touchscreen (y/n)?");
+                                    if (scanner.nextLine() == "y"){
+                                        touchscreen = true;
+                                    } else {
+                                        touchscreen = false;
+                                    }
+
+                                    //getting number of ports
+                                    System.out.println("How many ports does the laptop have?");
+                                    int itemNumOfPorts = scanner.nextInt();
+                            }
+
+                        }
                     }
                 //user chooses to sell
                 case 2:
