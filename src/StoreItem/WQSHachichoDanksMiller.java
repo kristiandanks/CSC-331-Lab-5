@@ -124,6 +124,9 @@ public class WQSHachichoDanksMiller{
                                     int newItemType = scanner.nextInt();
                                     scanner.nextLine();
 
+                                    // Get the common fields
+                                    CommonFields base = promptCommonFields(scanner);
+
                                     //branching logic based on new item type
                                     switch (newItemType)
                                     {
@@ -132,27 +135,6 @@ public class WQSHachichoDanksMiller{
                                             //initialzing boolean variables that are assigned in conditional statements
                                             boolean itemOrganic;
                                             boolean itemBerry;
-
-                                            //getting price and round it to two decimal places
-                                            System.out.println("How much is your fruit going to cost?");
-                                            double itemPrice = Math.round(scanner.nextDouble() * 100) /100;
-                                            scanner.nextLine();
-
-                                            //getting section for item
-                                            System.out.println("What section/aisle would your item be found on (e.g. A19)?");
-                                            String itemSection = scanner.nextLine();
-
-                                            //getting brand of item
-                                            System.out.println("What is the brand of the item?");
-                                            String itemBrand = scanner.nextLine();
-
-                                            //getting name of item
-                                            System.out.println("What is the name of the item?");
-                                            String itemName = scanner.nextLine();
-
-                                            //getting return policy of item
-                                            System.out.println("What is the item's return policy?");
-                                            String itemReturnPolicy = scanner.nextLine();
 
                                             //getting expiration date of item
                                             System.out.println("What is the expiration date for your item (MM-DD-YYYY)?");
@@ -187,34 +169,15 @@ public class WQSHachichoDanksMiller{
                                             }
 
                                             //create item and add to list
-                                            Fruit newItem = new Fruit(itemPrice, itemSection, itemBrand, itemName, itemReturnPolicy, itemExpirationDate, itemOrganic, itemNutritionFacts, itemBerry);
+                                            Fruit newItem = new Fruit(base.itemPrice, base.itemSection, base.itemBrand, base.itemName, base.itemReturnPolicy, itemExpirationDate, itemOrganic, itemNutritionFacts, itemBerry);
                                             foodItemInventory.add(newItem);
                                             break;
+
                                         //user is adding a vegetable
                                         case 2:
 
                                             //initializing boolean values that are assigned in conditional statements
                                             boolean itemIsLeafy;
-                                            //getting price and round it to two decimal places
-                                            System.out.println("How much is your vegetbale going to cost?");
-                                            itemPrice = Math.round(scanner.nextDouble() * 100) /100;
-                                            scanner.nextLine();
-
-                                            //getting section for item
-                                            System.out.println("What section/aisle would your item be found on (e.g. A19)?");
-                                            itemSection = scanner.nextLine();
-
-                                            //getting brand of item
-                                            System.out.println("What is the brand of the item?");
-                                            itemBrand = scanner.nextLine();
-
-                                            //getting name of item
-                                            System.out.println("What is the name of the item?");
-                                            itemName = scanner.nextLine();
-
-                                            //getting return policy of item
-                                            System.out.println("What is the item's return policy?");
-                                            itemReturnPolicy = scanner.nextLine();
 
                                             //getting expiration date of item
                                             System.out.println("What is the expiration date for your item (MM-DD-YYYY)?");
@@ -247,32 +210,12 @@ public class WQSHachichoDanksMiller{
                                             }
 
                                             //create item and add to list
-                                            Vegetable newVeg = new Vegetable(itemPrice, itemSection, itemBrand, itemName, itemReturnPolicy, itemExpirationDate, itemOrganic, itemNutritionFacts, itemIsLeafy);
+                                            Vegetable newVeg = new Vegetable(base.itemPrice, base.itemSection, base.itemBrand, base.itemName, base.itemReturnPolicy, itemExpirationDate, itemOrganic, itemNutritionFacts, itemIsLeafy);
                                             foodItemInventory.add(newVeg);
                                             break;
                                         case 3:
                                             //user adds a shelf stable item
                                             //initializing boolean values that are assigned in conditional statements
-                                            //getting price and round it to two decimal places
-                                            System.out.println("How much is your fruit going to cost?");
-                                            itemPrice = Math.round(scanner.nextDouble() * 100) /100;
-                                            scanner.nextLine();
-
-                                            //getting section for item
-                                            System.out.println("What section/aisle would your item be found on (e.g. A19)?");
-                                            itemSection = scanner.nextLine();
-
-                                            //getting brand of item
-                                            System.out.println("What is the brand of the item?");
-                                            itemBrand = scanner.nextLine();
-
-                                            //getting name of item
-                                            System.out.println("What is the name of the item?");
-                                            itemName = scanner.nextLine();
-
-                                            //getting return policy of item
-                                            System.out.println("What is the item's return policy?");
-                                            itemReturnPolicy = scanner.nextLine();
 
                                             //getting expiration date of item
                                             System.out.println("What is the expiration date for your item (MM-DD-YYYY)?");
@@ -298,7 +241,7 @@ public class WQSHachichoDanksMiller{
                                             System.out.println("How is the item packaged/stored (e.g boxed, canned, etc.)");
                                             String itemBoxedOrCanned = scanner.nextLine();
 
-                                            ShelfStable newShelfStable = new ShelfStable(itemPrice, itemSection, itemBrand, itemName, itemReturnPolicy, itemExpirationDate, itemOrganic, itemNutritionFacts, itemBoxedOrCanned);
+                                            ShelfStable newShelfStable = new ShelfStable(base.itemPrice, base.itemSection, base.itemBrand, base.itemName, base.itemReturnPolicy, itemExpirationDate, itemOrganic, itemNutritionFacts, itemBoxedOrCanned);
                                             foodItemInventory.add(newShelfStable);
                                             break;
 
@@ -361,27 +304,6 @@ public class WQSHachichoDanksMiller{
                                     int newItemType = scanner.nextInt();
                                     scanner.nextLine();
 
-                                    //getting price and round it to two decimal places
-                                    System.out.println("How much is your item going to cost?");
-                                    double itemPrice = Math.round(scanner.nextDouble() * 100) / 100;
-                                    scanner.nextLine();
-
-                                    //getting section for item
-                                    System.out.println("What section/aisle would your item be found on (e.g. A19)?");
-                                    String itemSection = scanner.nextLine();
-
-                                    //getting brand of item
-                                    System.out.println("What is the brand of the item?");
-                                    String itemBrand = scanner.nextLine();
-
-                                    //getting name of item
-                                    System.out.println("What is the name of the item?");
-                                    String itemName = scanner.nextLine();
-
-                                    //getting return policy of item
-                                    System.out.println("What is the item's return policy?");
-                                    String itemReturnPolicy = scanner.nextLine();
-
                                     //getting wattage of item
                                     System.out.println("What is the wattage of the item (in Watts)?");
                                     int itemWattage = scanner.nextInt();
@@ -390,7 +312,7 @@ public class WQSHachichoDanksMiller{
                                     //getting type of screen
                                     System.out.println("What is the screen type of the device?");
                                     String itemScreenType = scanner.nextLine();
-
+                                    CommonFields base = promptCommonFields(scanner);
                                     //branching logic based on new item type
                                     switch (newItemType)
                                     {
@@ -419,7 +341,7 @@ public class WQSHachichoDanksMiller{
                                             int itemNumOfPorts = scanner.nextInt();
                                             scanner.nextLine();
 
-                                            Laptop newItem = new Laptop(itemPrice, itemSection, itemBrand, itemName, itemReturnPolicy, itemWattage, itemScreenType, itemCpu, itemTouchscreen, itemNumOfPorts);
+                                            Laptop newItem = new Laptop(base.itemPrice, base.itemSection, base.itemBrand, base.itemName, base.itemReturnPolicy, itemWattage, itemScreenType, itemCpu, itemTouchscreen, itemNumOfPorts);
                                             electronicsItemInventory.add(newItem);
                                             break;
                                         //User chooses to add new TV
@@ -460,7 +382,7 @@ public class WQSHachichoDanksMiller{
                                             }
 
                                             //this is using polymorphism to add an instance of the TV class to an ArrayList of electronics items
-                                            TV newTV = new TV(itemPrice, itemSection, itemBrand, itemName, itemReturnPolicy, itemWattage, itemScreenType, itemIsSmart, itemIsFlatscreen, itemSurroundSound);
+                                            TV newTV = new TV(base.itemPrice, base.itemSection, base.itemBrand, base.itemName, base.itemReturnPolicy, itemWattage, itemScreenType, itemIsSmart, itemIsFlatscreen, itemSurroundSound);
                                             electronicsItemInventory.add(newTV);
                                             break;
                                         //User chooses to add new phone
@@ -471,7 +393,7 @@ public class WQSHachichoDanksMiller{
                                             scanner.nextLine();
 
                                             //this is using polymorphism to add an instance of the Phone class to an ArrayList of electronics items
-                                            Phone newPhone = new Phone(itemPrice, itemSection, itemBrand, itemName, itemReturnPolicy, itemWattage, itemScreenType, itemNumOfCameras);
+                                            Phone newPhone = new Phone(base.itemPrice, base.itemSection, base.itemBrand, base.itemName, base.itemReturnPolicy, itemWattage, itemScreenType, itemNumOfCameras);
                                             electronicsItemInventory.add(newPhone);
                                             break;
                                     }
@@ -671,5 +593,48 @@ public class WQSHachichoDanksMiller{
             }
         }
     }
+    // Helper functions for reusability
+    static class CommonFields {
+        double itemPrice;
+        String itemSection;
+        String itemBrand;
+        String itemName;
+        String itemReturnPolicy;
+    }
 
+    /**
+     *
+     * @param scanner
+     * @return the commonily ask fields
+     */
+    static CommonFields promptCommonFields(Scanner scanner) {
+        CommonFields f = new CommonFields();
+        // getting price and round it to two decimal places
+        System.out.println("How much is your item going to cost?");
+        f.itemPrice = Math.round(scanner.nextDouble() * 100) / 100.0;
+        scanner.nextLine();
+        System.out.println("What section/aisle would your item be found on (e.g. A19)?");
+        f.itemSection = scanner.nextLine();
+        System.out.println("What is the brand of the item?");
+        f.itemBrand = scanner.nextLine();
+        System.out.println("What is the name of the item?");
+        f.itemName = scanner.nextLine();
+        System.out.println("What is the item's return policy?");
+        f.itemReturnPolicy = scanner.nextLine();
+
+        return f;
+    }
+
+    /**
+     *
+     * @param scanner
+     * @param prompt
+     * @return "y"
+     */
+    // WIP
+    static boolean askYesNo(Scanner scanner, String prompt) {
+        System.out.println(prompt + " (y/n)");
+        String input = scanner.nextLine().trim().toLowerCase();
+        return input.equals("y");
+    }
 }
