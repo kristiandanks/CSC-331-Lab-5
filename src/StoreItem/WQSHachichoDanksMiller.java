@@ -34,20 +34,24 @@ public class WQSHachichoDanksMiller
         int addCategorySelection;
 
         //initializing variable to store selection of item type to add
-        int addTypeSelection;
+        int addTypeSelection = 0;
 
         //creating scanner to receive user input
         Scanner scanner = new Scanner(System.in);
 
         //initializing inventories for different item types
-        ArrayList<FoodItem> foodItemInventory = new ArrayList<>();
-        ArrayList<ElectronicsItem> electronicsItemInventory = new ArrayList<>();
-        ArrayList<ClothingItem> clothingItemInventory = new ArrayList<>();
-        ArrayList<HouseholdItem> householdItemInventory = new ArrayList<>();
+        ArrayList<StoreItem> foodItemInventory = new ArrayList<>();
+        ArrayList<StoreItem> electronicsItemInventory = new ArrayList<>();
+        ArrayList<StoreItem> clothingItemInventory = new ArrayList<>();
+        ArrayList<StoreItem> householdItemInventory = new ArrayList<>();
 
-        //creating array of arraylists to allow access to lists through indexing
+        //creating arraylist of arraylists to allow access to lists through indexing
         //this is using polymorphism because subclasses of StoreItem are being passed in as StoreItems
-        ArrayList<StoreItem>[] inventories = {foodItemInventory, electronicsItemInventory, clothingItemInventory, householdItemInventory};
+        ArrayList<ArrayList<StoreItem>> inventories = new ArrayList<>();
+        inventories.add(foodItemInventory);
+        inventories.add(electronicsItemInventory);
+        inventories.add(clothingItemInventory);
+        inventories.add(householdItemInventory);
 
         //loop that will run program
         while (running)
@@ -79,9 +83,10 @@ public class WQSHachichoDanksMiller
                     scanner.nextLine();
 
                     //displaying inventory for selected item type
-                    for (StoreItem item: inventories[addCategorySelection-1])
+                    System.out.println("The inventory currently contains: ");
+                    for (StoreItem item: inventories.get(addCategorySelection-1))
                     {
-                        System.out.println(item.getName());
+                        System.out.printf("%s%n",item.getName());
                     }
 
                     //asking user what item type they want to add based on category
@@ -103,14 +108,14 @@ public class WQSHachichoDanksMiller
 
                         //user chooses to add Clothing item
                         case 3:
-                            System.out.printf("What item type would you like to add?%n1) Shirt%n2) Outerwear%n3) Shoe");
+                            System.out.printf("What item type would you like to add?%n1) Shirt%n2) Outerwear%n3) Shoe%n");
                             addTypeSelection = scanner.nextInt();
                             scanner.nextLine();
                             break;
 
                         //user chooses to add Household item
                         case 4:
-                            System.out.println("What item type would you like to add?%n1) Furniture%n2) Cleaning supply");
+                            System.out.printf("What item type would you like to add?%n1) Furniture%n2) Cleaning supply");
                             addTypeSelection = scanner.nextInt();
                             scanner.nextLine();
                             break;
@@ -122,8 +127,9 @@ public class WQSHachichoDanksMiller
                     do
                     {
                         //asking user if they want to add or create items
-                        System.out.printf("What would you like to do?%n1) Add more of an existing item%n2) Create a new item");
+                        System.out.printf("What would you like to do?%n1) Add more of an existing item%n2) Create a new item%n");
                         addCreateSelection = scanner.nextInt();
+                        scanner.nextLine();
 
                         //user chooses to add existing item
                         if (addCreateSelection == 1)
@@ -133,12 +139,12 @@ public class WQSHachichoDanksMiller
                             String addItemName = scanner.nextLine();
 
                             //iterate through list to find desired item
-                            for (StoreItem item : inventories[addCategorySelection])
+                            for (StoreItem item : inventories.get(addCategorySelection-1))
                             {
                                 //desired item found
                                 if (item.getName().equals(addItemName))
                                 {
-                                    inventories[addCategorySelection-1].add(item); //adding another instance of the item to the inventory
+                                    inventories.get(addCategorySelection-1).add(item); //adding another instance of the item to the inventory
                                     break; //stop the loop
                                 }
                             }
@@ -146,7 +152,7 @@ public class WQSHachichoDanksMiller
                         {
                             //getting attributes of all store items
                             //getting price and round it to two decimal places
-                            System.out.println("How much is your fruit going to cost?");
+                            System.out.println("How much is your item going to cost?");
                             double itemPrice = Math.round(scanner.nextDouble() * 100) /100;
                             scanner.nextLine();
 
@@ -196,7 +202,8 @@ public class WQSHachichoDanksMiller
                                     String itemNutritionFacts = scanner.nextLine();
 
                                     //branching to get attributes of specific type chosen
-                                    switch (addTypeSelection){
+                                    switch (addTypeSelection)
+                                    {
                                         //user chooses to add fruit
                                         case 1:
                                             //initializing boolean berry variable
@@ -214,12 +221,11 @@ public class WQSHachichoDanksMiller
                                             try
                                             {
                                                 Fruit newFruit = new Fruit(itemPrice, itemSection, itemBrand, itemName, itemReturnPolicy, itemExpirationDate, itemOrganic, itemNutritionFacts, itemBerry);
-                                                inventories[addCategorySelection - 1].add(newFruit);
+                                                inventories.get(addCategorySelection - 1).add(newFruit);
                                             } catch (IllegalArgumentException e)
                                             {
                                                 System.out.println(e);
-                                            }
-                                            break;
+                                            } finally { break;}
                                         //User chooses to add a vegetable
                                         case 2:
                                             //initializing boolean leafy variable
@@ -239,7 +245,7 @@ public class WQSHachichoDanksMiller
                                             try
                                             {
                                                 Vegetable newVegetable = new Vegetable(itemPrice, itemSection, itemBrand, itemName, itemReturnPolicy, itemExpirationDate, itemOrganic, itemNutritionFacts, itemLeafy);
-                                                inventories[addCategorySelection - 1].add(newVegetable);
+                                                inventories.get(addCategorySelection - 1).add(newVegetable);
                                             } catch (IllegalArgumentException e)
                                             {
                                                 System.out.println(e);
@@ -255,13 +261,13 @@ public class WQSHachichoDanksMiller
                                             try
                                             {
                                                 ShelfStable newShelfStable = new ShelfStable(itemPrice, itemSection, itemBrand, itemName, itemReturnPolicy, itemExpirationDate, itemOrganic, itemNutritionFacts, itemBoxedOrCanned);
-                                                inventories[addCategorySelection-1].add(newShelfStable);
+                                                inventories.get(addCategorySelection-1).add(newShelfStable);
                                             } catch (IllegalArgumentException e)
                                             {
                                                 System.out.println(e);
                                             }
                                             break;
-                                    }
+                                    } break;
                                 //user chooses to add Electronic item
                                 case 2:
                                     //getting attributes of all electronic items
@@ -269,6 +275,7 @@ public class WQSHachichoDanksMiller
                                     //getting wattage of item
                                     System.out.println("What is the wattage of the item (in watts)?");
                                     int itemWattage = scanner.nextInt();
+                                    scanner.nextLine();
 
                                     //getting screen type of item
                                     System.out.println("What is the screen type of the item?");
@@ -289,6 +296,7 @@ public class WQSHachichoDanksMiller
                                             //getting number of ports on laptop
                                             System.out.println("How many ports does the laptop have?");
                                             int itemNumOfPorts = scanner.nextInt();
+                                            scanner.nextLine();
 
                                             //getting touchscreen value from user
                                             System.out.println("Is the laptop touchscreen (y/n)?");
@@ -304,7 +312,7 @@ public class WQSHachichoDanksMiller
                                             try
                                             {
                                                 Laptop newLaptop = new Laptop(itemPrice, itemSection, itemBrand, itemName, itemReturnPolicy, itemWattage, itemScreenType, itemCpu, itemTouchscreen, itemNumOfPorts);
-                                                inventories[addCategorySelection-1].add(newLaptop);
+                                                inventories.get(addCategorySelection-1).add(newLaptop);
                                             } catch (IllegalArgumentException e)
                                             {
                                                 System.out.println(e);
@@ -349,7 +357,7 @@ public class WQSHachichoDanksMiller
                                             try
                                             {
                                                 TV newTV = new TV(itemPrice, itemSection, itemBrand, itemName, itemReturnPolicy, itemWattage, itemScreenType, itemIsSmart, itemIsFlatscreen, itemSurroundSound);
-                                                inventories[addCategorySelection-1].add(newTV);
+                                                inventories.get(addCategorySelection-1).add(newTV);
                                             } catch (IllegalArgumentException e)
                                             {
                                                 System.out.println(e);
@@ -359,18 +367,19 @@ public class WQSHachichoDanksMiller
                                             //getting of number of cameras phone has
                                             System.out.println("How many cameras does the phone have?");
                                             int itemNumOfCameras = scanner.nextInt();
+                                            scanner.nextLine();
 
                                             //attempting to create and add item, catch invalid numerical inputs
                                             try
                                             {
                                                 Phone newPhone = new Phone(itemPrice,itemSection,itemBrand,itemName,itemReturnPolicy,itemWattage,itemScreenType,itemNumOfCameras);
-                                                inventories[addCategorySelection-1].add(newPhone);
+                                                inventories.get(addCategorySelection-1).add(newPhone);
                                             } catch (IllegalArgumentException e)
                                             {
                                                 System.out.println(e);
                                             } break;
 
-                                    }
+                                    } break;
                                 //user chooses to add Clothing item
                                 case 3:
                                     //getting attributes of all clothing items
@@ -399,7 +408,7 @@ public class WQSHachichoDanksMiller
                                             try
                                             {
                                                 Shirt newShirt = new Shirt(itemPrice, itemSection, itemBrand, itemName, itemReturnPolicy, itemMaterial, itemColor, itemSize, itemNeckHoleType);
-                                                inventories[addCategorySelection-1].add(newShirt);
+                                                inventories.get(addCategorySelection-1).add(newShirt);
                                             } catch (IllegalArgumentException e)
                                             {
                                                 System.out.println(e);
@@ -424,7 +433,7 @@ public class WQSHachichoDanksMiller
                                             try
                                             {
                                                 Outerwear newOuterwear = new Outerwear(itemPrice, itemSection, itemBrand, itemName, itemReturnPolicy, itemMaterial, itemColor, itemSize, itemHasZipper);
-                                                inventories[addCategorySelection-1].add(newOuterwear);
+                                                inventories.get(addCategorySelection-1).add(newOuterwear);
                                             }
                                             catch (IllegalArgumentException e)
                                             {
@@ -441,13 +450,13 @@ public class WQSHachichoDanksMiller
                                             try
                                             {
                                                 Shoe newShoe = new Shoe(itemPrice, itemSection, itemBrand, itemName,itemReturnPolicy,itemMaterial,itemColor,itemSize,itemShoeType);
-                                                inventories[addCategorySelection-1].add(newShoe);
+                                                inventories.get(addCategorySelection-1).add(newShoe);
                                             } catch (IllegalArgumentException e)
                                             {
                                                 System.out.println(e);
                                             } break;
 
-                                    }
+                                    } break;
                                 //user chooses to add household items
                                 case 4:
                                     //getting attributes of household item
@@ -471,13 +480,13 @@ public class WQSHachichoDanksMiller
 
                                             //receives material of furniture
                                             System.out.println("What is the furniture made of?");
-                                            String itemMaterial = scanner.nextLine();
+                                            String itemFurnitureMaterial = scanner.nextLine();
 
                                             //attempting to create and add item, catch invalid numerical inputs
                                             try
                                             {
-                                                Furniture newFurniture = new Furniture(itemPrice, itemSection, itemBrand, itemName, itemReturnPolicy, itemVolume, itemIntendedUse, itemWeight, itemMaterial);
-                                                inventories[addCategorySelection-1].add(newFurniture);
+                                                Furniture newFurniture = new Furniture(itemPrice, itemSection, itemBrand, itemName, itemReturnPolicy, itemVolume, itemIntendedUse, itemWeight, itemFurnitureMaterial);
+                                                inventories.get(addCategorySelection-1).add(newFurniture);
                                             } catch (IllegalArgumentException e)
                                             {
                                                 System.out.println(e);
@@ -492,7 +501,7 @@ public class WQSHachichoDanksMiller
                                             try
                                             {
                                                 CleaningSupply newCleaningSupply = new CleaningSupply(itemPrice, itemSection, itemBrand, itemName, itemReturnPolicy, itemVolume, itemIntendedUse, itemActiveChemical);
-                                                inventories[addCategorySelection-1].add(newCleaningSupply);
+                                                inventories.get(addCategorySelection-1).add(newCleaningSupply);
                                             } catch (IllegalArgumentException e)
                                             {
                                                 System.out.println(e);
@@ -511,8 +520,8 @@ public class WQSHachichoDanksMiller
                         } else
                         {
                             //displaying inventory
-                            System.out.println("The electronics items inventory now contains: ");
-                            for (ElectronicsItem item : electronicsItemInventory)
+                            System.out.println("The inventory now contains: ");
+                            for (StoreItem item : inventories.get(addCategorySelection-1))
                             {
                                 System.out.println(item.getName());
                             }
