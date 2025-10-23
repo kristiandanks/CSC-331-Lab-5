@@ -41,67 +41,81 @@ public class WQSHachichoDanksMiller{
         ArrayList<HouseholdItem> householdItemInventory = new ArrayList<>();
 
         //loop that will run program
-        while (running){
-
+        while (running)
+        {
             //receiving user input to add, sell, or end
             System.out.printf("Please input the number corresponding to the action you would like to take :%n1) Add an item to the inventory%n2) Sell an item from the inventory%nIf you would like to end the program, press enter.%n");
 
             //making selection based on input
             userInput = scanner.nextLine();
-            try {
+            try
+            {
                 //if number is provided, make selection equal to that number (1 or 2 for choices)
                 addRemoveSelection = Integer.parseInt(userInput);
-            } catch (NumberFormatException e){
+            } catch (NumberFormatException e)
+            {
                 //if input is not numeric, selection is 0, program will end (default switch case)
                 addRemoveSelection = 0;
             }
 
 
             //branching logic based on input
-            switch (addRemoveSelection) {
+            switch (addRemoveSelection)
+            {
                 //user chooses to add
                 case 1:
                     //asking user what item type they want to add
                     System.out.printf("What item type would you like to add:%n1) Food%n2) Electronics%n3) Clothing%n4) Household%n");
                     addTypeSelection = scanner.nextInt();
+                    scanner.nextLine();
 
                     //branching logic based on item type to add
-                    switch (addTypeSelection){
+                    switch (addTypeSelection)
+                    {
                         //user chooses to add FoodItems
                         case 1:
                             //displaying inventory
                             System.out.println("The food items inventory currently contains: ");
-                            for (FoodItem item: foodItemInventory){
+                            for (FoodItem item: foodItemInventory)
+                            {
                                 System.out.println(item.getName());
                             }
                             //initialzing variable for do-while condition
                             boolean continueAdding;
-                            do {
+                            do
+                            {
                                 //receiving user input to add existing items or create new ones
                                 System.out.printf("What would you like to do:%n1) Add more of an existing item already in the list%n2) Create a new item to add to the list%n");
                                 int addCreateSelection = scanner.nextInt();
+                                scanner.nextLine();
 
                                 //add more of an existing item
-                                if (addCreateSelection == 1) {
+                                if (addCreateSelection == 1)
+                                {
                                     //ask what existing item to add
                                     System.out.println("Please input the name of the item you would like to add more of.");
                                     String addItemName = scanner.nextLine();
 
                                     //iterate through list to find desired item
-                                    for (FoodItem item : foodItemInventory) {
+                                    for (FoodItem item : foodItemInventory)
+                                    {
                                         //desired item found
-                                        if (item.getName() == addItemName) {
+                                        if (item.getName().equals(addItemName))
+                                        {
                                             foodItemInventory.add(item); //adding another instance of the item to the inventory
                                             break; //stop the loop
                                         }
                                     }
-                                } else {
+                                } else
+                                {
                                     //user is creating a new item, ask which type
                                     System.out.printf("Which item type would you like to create:%n1) Fruit%n2) Vegetable%n3) Shelf Stable%n");
                                     int newItemType = scanner.nextInt();
+                                    scanner.nextLine();
 
                                     //branching logic based on new item type
-                                    switch (newItemType){
+                                    switch (newItemType)
+                                    {
                                         //user is adding a fruit
                                         case 1:
                                             //initialzing boolean variables that are assigned in conditional statements
@@ -137,9 +151,11 @@ public class WQSHachichoDanksMiller{
                                             System.out.println("Is the item organic (y/n)?");
 
                                             //item is organic
-                                            if (scanner.nextLine() == "y"){
+                                            if (scanner.nextLine().equals("y"))
+                                            {
                                                 itemOrganic = true;
-                                            } else {
+                                            } else
+                                            {
                                                 itemOrganic = false;
                                             }
 
@@ -151,9 +167,11 @@ public class WQSHachichoDanksMiller{
                                             System.out.println("Is the item a berry (y/n)?");
 
                                             //item is berry
-                                            if (scanner.nextLine() == "y"){
+                                            if (scanner.nextLine().equals("y"))
+                                            {
                                                 itemBerry = true;
-                                            } else {
+                                            } else
+                                            {
                                                 itemBerry = false;
                                             }
 
@@ -165,120 +183,127 @@ public class WQSHachichoDanksMiller{
                                         case 2:
 
                                             //initializing boolean values that are assigned in conditional statements
-                                            boolean itemOrganic;
                                             boolean itemIsLeafy;
                                             //getting price and round it to two decimal places
                                             System.out.println("How much is your vegetbale going to cost?");
-                                            double itemPrice = Math.round(scanner.nextDouble() * 100) /100;
+                                            itemPrice = Math.round(scanner.nextDouble() * 100) /100;
                                             scanner.nextLine();
 
                                             //getting section for item
                                             System.out.println("What section/aisle would your item be found on (e.g. A19)?");
-                                            String itemSection = scanner.nextLine();
+                                            itemSection = scanner.nextLine();
 
                                             //getting brand of item
                                             System.out.println("What is the brand of the item?");
-                                            String itemBrand = scanner.nextLine();
+                                            itemBrand = scanner.nextLine();
 
                                             //getting name of item
                                             System.out.println("What is the name of the item?");
-                                            String itemName = scanner.nextLine();
+                                            itemName = scanner.nextLine();
 
                                             //getting return policy of item
                                             System.out.println("What is the item's return policy?");
-                                            String itemReturnPolicy = scanner.nextLine();
+                                            itemReturnPolicy = scanner.nextLine();
 
                                             //getting expiration date of item
                                             System.out.println("What is the expiration date for your item (MM-DD-YYYY)?");
-                                            String itemExpirationDate = scanner.nextLine();
+                                            itemExpirationDate = scanner.nextLine();
 
                                             //getting if item is organic
                                             System.out.println("Is the item organic (y/n)?");
 
                                             //item is organic
-                                            if (scanner.nextLine() == "y"){
+                                            if (scanner.nextLine().equals("y"))
+                                            {
                                                 itemOrganic = true;
-                                            } else {
+                                            } else
+                                            {
                                                 itemOrganic = false;
                                             }
 
                                             //getting nutrition facts of item
                                             System.out.println("What are the nutrition facts for your item?");
-                                            String itemNutritionFacts = scanner.nextLine();
+                                            itemNutritionFacts = scanner.nextLine();
 
                                             //getting if item is leafy
                                             System.out.println("Is the vegetable leafy?");
-                                            if (scanner.nextLine() == "y"){
+                                            if (scanner.nextLine().equals("y"))
+                                            {
                                                 itemIsLeafy = true;
-                                            } else {
+                                            } else
+                                            {
                                                 itemIsLeafy = false;
                                             }
 
                                             //create item and add to list
-                                            Vegetable newItem = new Vegetable(itemPrice, itemSection, itemBrand, itemName, itemReturnPolicy, itemExpirationDate, itemOrganic, itemNutritionFacts, itemIsLeafy);
-                                            foodItemInventory.add(newItem);
+                                            Vegetable newVeg = new Vegetable(itemPrice, itemSection, itemBrand, itemName, itemReturnPolicy, itemExpirationDate, itemOrganic, itemNutritionFacts, itemIsLeafy);
+                                            foodItemInventory.add(newVeg);
                                             break;
                                         case 3:
                                             //user adds a shelf stable item
                                             //initializing boolean values that are assigned in conditional statements
-                                            boolean itemOrganic;
                                             //getting price and round it to two decimal places
                                             System.out.println("How much is your fruit going to cost?");
-                                            double itemPrice = Math.round(scanner.nextDouble() * 100) /100;
+                                            itemPrice = Math.round(scanner.nextDouble() * 100) /100;
                                             scanner.nextLine();
 
                                             //getting section for item
                                             System.out.println("What section/aisle would your item be found on (e.g. A19)?");
-                                            String itemSection = scanner.nextLine();
+                                            itemSection = scanner.nextLine();
 
                                             //getting brand of item
                                             System.out.println("What is the brand of the item?");
-                                            String itemBrand = scanner.nextLine();
+                                            itemBrand = scanner.nextLine();
 
                                             //getting name of item
                                             System.out.println("What is the name of the item?");
-                                            String itemName = scanner.nextLine();
+                                            itemName = scanner.nextLine();
 
                                             //getting return policy of item
                                             System.out.println("What is the item's return policy?");
-                                            String itemReturnPolicy = scanner.nextLine();
+                                            itemReturnPolicy = scanner.nextLine();
 
                                             //getting expiration date of item
                                             System.out.println("What is the expiration date for your item (MM-DD-YYYY)?");
-                                            String itemExpirationDate = scanner.nextLine();
+                                            itemExpirationDate = scanner.nextLine();
 
                                             //getting if item is organic
                                             System.out.println("Is the item organic (y/n)?");
 
                                             //item is organic
-                                            if (scanner.nextLine() == "y"){
+                                            if (scanner.nextLine().equals("y"))
+                                            {
                                                 itemOrganic = true;
-                                            } else {
+                                            } else
+                                            {
                                                 itemOrganic = false;
                                             }
 
                                             //getting nutrition facts of item
                                             System.out.println("What are the nutrition facts for your item?");
-                                            String itemNutritionFacts = scanner.nextLine();
+                                            itemNutritionFacts = scanner.nextLine();
 
                                             //getting how item is packaged/stored
                                             System.out.println("How is the item packaged/stored (e.g boxed, canned, etc.)");
                                             String itemBoxedOrCanned = scanner.nextLine();
 
-                                            ShelfStable newItem = new ShelfStable(itemPrice, itemSection, itemBrand, itemName, itemReturnPolicy, itemExpirationDate, itemOrganic, itemNutritionFacts, itemBoxedOrCanned);
-                                            foodItemInventory.add(newItem);
+                                            ShelfStable newShelfStable = new ShelfStable(itemPrice, itemSection, itemBrand, itemName, itemReturnPolicy, itemExpirationDate, itemOrganic, itemNutritionFacts, itemBoxedOrCanned);
+                                            foodItemInventory.add(newShelfStable);
                                             break;
 
                                     }
                                 }
                                 //ask user to continue program
-                                System.out.println("Would you like to continue adding items (y/n)?)";
-                                if (scanner.nextLine() == "y"){
+                                System.out.println("Would you like to continue adding items (y/n)?)");
+                                if (scanner.nextLine().equals("y"))
+                                {
                                     continueAdding = true;
-                                } else {
+                                } else
+                                {
                                     //displaying inventory
                                     System.out.println("The food items inventory now contains: ");
-                                    for (FoodItem item: foodItemInventory){
+                                    for (FoodItem item: foodItemInventory)
+                                    {
                                         System.out.println(item.getName());
                                     }
                                     continueAdding = false;
@@ -289,80 +314,173 @@ public class WQSHachichoDanksMiller{
                         case 2:
                             //displaying inventory
                             System.out.println("The food items inventory currently contains: ");
-                            for (ElectronicsItem item: electronicsItemInventory){
+                            for (ElectronicsItem item: electronicsItemInventory)
+                            {
                                 System.out.println(item.getName());
                             }
                             //initialzing variable for do-while condition
-                            boolean continueAdding;
-                            do {
+                            do
+                            {
                                 //receiving user input to add existing items or create new ones
                                 System.out.printf("What would you like to do:%n1) Add more of an existing item already in the list%n2) Create a new item to add to the list%n");
                                 int addCreateSelection = scanner.nextInt();
+                                scanner.nextLine();
 
                                 //add more of an existing item
-                                if (addCreateSelection == 1) {
+                                if (addCreateSelection == 1)
+                                {
                                     //ask what existing item to add
                                     System.out.println("Please input the name of the item you would like to add more of.");
                                     String addItemName = scanner.nextLine();
 
                                     //iterate through list to find desired item
-                                    for (ElectronicsItem item : electronicsItemInventory) {
+                                    for (ElectronicsItem item : electronicsItemInventory)
+                                    {
                                         //desired item found
-                                        if (item.getName() == addItemName) {
+                                        if (item.getName().equals(addItemName))
+                                        {
                                             electronicsItemInventory.add(item); //adding another instance of the item to the inventory
                                             break; //stop the loop
                                         }
                                     }
-                            }   } else {
-                            //user is creating a new item, ask which type
-                            System.out.printf("Which item type would you like to create:%n1) Laptop%n2) TV%n3) Phone%n");
-                            int newItemType = scanner.nextInt();
+                                } else
+                                {
+                                    //user is creating a new item, ask which type
+                                    System.out.printf("Which item type would you like to create:%n1) Laptop%n2) TV%n3) Phone%n");
+                                    int newItemType = scanner.nextInt();
+                                    scanner.nextLine();
 
-                            //getting price and round it to two decimal places
-                            System.out.println("How much is your fruit going to cost?");
-                            double itemPrice = Math.round(scanner.nextDouble() * 100) /100;
-                            scanner.nextLine();
+                                    //getting price and round it to two decimal places
+                                    System.out.println("How much is your item going to cost?");
+                                    double itemPrice = Math.round(scanner.nextDouble() * 100) / 100;
+                                    scanner.nextLine();
 
-                            //getting section for item
-                            System.out.println("What section/aisle would your item be found on (e.g. A19)?");
-                            String itemSection = scanner.nextLine();
+                                    //getting section for item
+                                    System.out.println("What section/aisle would your item be found on (e.g. A19)?");
+                                    String itemSection = scanner.nextLine();
 
-                            //getting brand of item
-                            System.out.println("What is the brand of the item?");
-                            String itemBrand = scanner.nextLine();
+                                    //getting brand of item
+                                    System.out.println("What is the brand of the item?");
+                                    String itemBrand = scanner.nextLine();
 
-                            //getting name of item
-                            System.out.println("What is the name of the item?");
-                            String itemName = scanner.nextLine();
+                                    //getting name of item
+                                    System.out.println("What is the name of the item?");
+                                    String itemName = scanner.nextLine();
 
-                            //getting return policy of item
-                            System.out.println("What is the item's return policy?");
-                            String itemReturnPolicy = scanner.nextLine();
+                                    //getting return policy of item
+                                    System.out.println("What is the item's return policy?");
+                                    String itemReturnPolicy = scanner.nextLine();
 
-                            //branching logic based on new item type
-                            switch (newItemType){
-                                //initializing boolean variables that are assigned in conditionals
-                                boolean touchscreen;
-                                //user chooses to add new laptop
-                                case 1:
-                                    //getting cpu of the laptop from the user
-                                    System.out.println("Please provide the cpu of the laptop: ");
-                                    String itemCpu = scanner.nextLine();
+                                    //getting wattage of item
+                                    System.out.println("What is the wattage of the item (in Watts)?");
+                                    int itemWattage = scanner.nextInt();
+                                    scanner.nextLine();
 
-                                    //getting if laptop is touchscreen or not
-                                    System.out.println("Is the laptop touchscreen (y/n)?");
-                                    if (scanner.nextLine() == "y"){
-                                        touchscreen = true;
-                                    } else {
-                                        touchscreen = false;
+                                    //getting type of screen
+                                    System.out.println("What is the screen type of the device?");
+                                    String itemScreenType = scanner.nextLine();
+
+                                    //branching logic based on new item type
+                                    switch (newItemType)
+                                    {
+
+                                        //user chooses to add new laptop
+                                        case 1:
+                                            //initializing boolean variables that are assigned in conditionals
+                                            boolean itemTouchscreen;
+
+                                            //getting cpu of the laptop from the user
+                                            System.out.println("Please provide the cpu of the laptop: ");
+                                            String itemCpu = scanner.nextLine();
+
+                                            //getting if laptop is touchscreen or not
+                                            System.out.println("Is the laptop touchscreen (y/n)?");
+                                            if (scanner.nextLine().equals("y"))
+                                            {
+                                                itemTouchscreen = true;
+                                            } else
+                                            {
+                                                itemTouchscreen = false;
+                                            }
+
+                                            //getting number of ports
+                                            System.out.println("How many ports does the laptop have?");
+                                            int itemNumOfPorts = scanner.nextInt();
+                                            scanner.nextLine();
+
+                                            Laptop newItem = new Laptop(itemPrice, itemSection, itemBrand, itemName, itemReturnPolicy, itemWattage, itemScreenType, itemCpu, itemTouchscreen, itemNumOfPorts);
+                                            electronicsItemInventory.add(newItem);
+                                            break;
+                                        //User chooses to add new TV
+                                        case 2:
+                                            //initializing boolean variables that are assigned in conditionals
+                                            boolean itemIsSmart;
+                                            boolean itemIsFlatscreen;
+                                            boolean itemSurroundSound;
+
+                                            //getting if TV is smart TV
+                                            System.out.println("Is this TV a smart TV (y/n)?");
+                                            if (scanner.nextLine().equals("y"))
+                                            {
+                                                itemIsSmart = true;
+                                            } else
+                                            {
+                                                itemIsSmart = false;
+                                            }
+
+                                            //getting if TV is flatscreen
+                                            System.out.println("Is this TV a flatscreen TV (y/n)?");
+                                            if (scanner.nextLine().equals("y"))
+                                            {
+                                                itemIsFlatscreen = true;
+                                            } else
+                                            {
+                                                itemIsFlatscreen = false;
+                                            }
+
+                                            //getting if TV has surround sound
+                                            System.out.println("Does this TV have surround sound (y/n)?");
+                                            if (scanner.nextLine().equals("y"))
+                                            {
+                                                itemSurroundSound = true;
+                                            } else
+                                            {
+                                                itemSurroundSound = false;
+                                            }
+
+                                            //this is using polymorphism to add an instance of the TV class to an ArrayList of electronics items
+                                            TV newTV = new TV(itemPrice, itemSection, itemBrand, itemName, itemReturnPolicy, itemWattage, itemScreenType, itemIsSmart, itemIsFlatscreen, itemSurroundSound);
+                                            electronicsItemInventory.add(newTV);
+                                            break;
+                                        //User chooses to add new phone
+                                        case 3:
+                                            //getting number of cameras
+                                            System.out.println("How many cameras does this phone have?");
+                                            int itemNumOfCameras = scanner.nextInt();
+                                            scanner.nextLine();
+
+                                            //this is using polymorphism to add an instance of the Phone class to an ArrayList of electronics items
+                                            Phone newPhone = new Phone(itemPrice, itemSection, itemBrand, itemName, itemReturnPolicy, itemWattage, itemScreenType, itemNumOfCameras);
+                                            electronicsItemInventory.add(newPhone);
+                                            break;
                                     }
-
-                                    //getting number of ports
-                                    System.out.println("How many ports does the laptop have?");
-                                    int itemNumOfPorts = scanner.nextInt();
+                                    }
+                            //ask user to continue program
+                            System.out.println("Would you like to continue adding items (y/n)?)");
+                            if (scanner.nextLine().equals("y"))
+                            {
+                                continueAdding = true;
+                            } else
+                            {
+                                //displaying inventory
+                                System.out.println("The electronics items inventory now contains: ");
+                                for (ElectronicsItem item : electronicsItemInventory)
+                                {
+                                    System.out.println(item.getName());
+                                }
+                                continueAdding = false;
                             }
-
-                        }
+                        } while (continueAdding);
                     }
                 //user chooses to sell
                 case 2:
