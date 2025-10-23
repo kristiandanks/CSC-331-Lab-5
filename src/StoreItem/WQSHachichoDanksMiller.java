@@ -653,7 +653,7 @@ public class WQSHachichoDanksMiller{
                         System.out.println(item.getName());
                     }
 
-                //user chooses to end program
+                // user chooses to end program
                 default:
                     running = false;
                     break;
