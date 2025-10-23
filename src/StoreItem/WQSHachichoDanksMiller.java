@@ -124,6 +124,9 @@ public class WQSHachichoDanksMiller{
                                     int newItemType = scanner.nextInt();
                                     scanner.nextLine();
 
+                                    // Get the common fields
+                                    CommonFields base = promptCommonFields(scanner);
+
                                     //branching logic based on new item type
                                     switch (newItemType)
                                     {
@@ -132,27 +135,6 @@ public class WQSHachichoDanksMiller{
                                             //initialzing boolean variables that are assigned in conditional statements
                                             boolean itemOrganic;
                                             boolean itemBerry;
-
-                                            //getting price and round it to two decimal places
-                                            System.out.println("How much is your fruit going to cost?");
-                                            double itemPrice = Math.round(scanner.nextDouble() * 100) /100;
-                                            scanner.nextLine();
-
-                                            //getting section for item
-                                            System.out.println("What section/aisle would your item be found on (e.g. A19)?");
-                                            String itemSection = scanner.nextLine();
-
-                                            //getting brand of item
-                                            System.out.println("What is the brand of the item?");
-                                            String itemBrand = scanner.nextLine();
-
-                                            //getting name of item
-                                            System.out.println("What is the name of the item?");
-                                            String itemName = scanner.nextLine();
-
-                                            //getting return policy of item
-                                            System.out.println("What is the item's return policy?");
-                                            String itemReturnPolicy = scanner.nextLine();
 
                                             //getting expiration date of item
                                             System.out.println("What is the expiration date for your item (MM-DD-YYYY)?");
@@ -187,34 +169,15 @@ public class WQSHachichoDanksMiller{
                                             }
 
                                             //create item and add to list
-                                            Fruit newItem = new Fruit(itemPrice, itemSection, itemBrand, itemName, itemReturnPolicy, itemExpirationDate, itemOrganic, itemNutritionFacts, itemBerry);
+                                            Fruit newItem = new Fruit(base.itemPrice, base.itemSection, base.itemBrand, base.itemName, base.itemReturnPolicy, itemExpirationDate, itemOrganic, itemNutritionFacts, itemBerry);
                                             foodItemInventory.add(newItem);
                                             break;
+
                                         //user is adding a vegetable
                                         case 2:
 
                                             //initializing boolean values that are assigned in conditional statements
                                             boolean itemIsLeafy;
-                                            //getting price and round it to two decimal places
-                                            System.out.println("How much is your vegetbale going to cost?");
-                                            itemPrice = Math.round(scanner.nextDouble() * 100) /100;
-                                            scanner.nextLine();
-
-                                            //getting section for item
-                                            System.out.println("What section/aisle would your item be found on (e.g. A19)?");
-                                            itemSection = scanner.nextLine();
-
-                                            //getting brand of item
-                                            System.out.println("What is the brand of the item?");
-                                            itemBrand = scanner.nextLine();
-
-                                            //getting name of item
-                                            System.out.println("What is the name of the item?");
-                                            itemName = scanner.nextLine();
-
-                                            //getting return policy of item
-                                            System.out.println("What is the item's return policy?");
-                                            itemReturnPolicy = scanner.nextLine();
 
                                             //getting expiration date of item
                                             System.out.println("What is the expiration date for your item (MM-DD-YYYY)?");
@@ -247,32 +210,12 @@ public class WQSHachichoDanksMiller{
                                             }
 
                                             //create item and add to list
-                                            Vegetable newVeg = new Vegetable(itemPrice, itemSection, itemBrand, itemName, itemReturnPolicy, itemExpirationDate, itemOrganic, itemNutritionFacts, itemIsLeafy);
+                                            Vegetable newVeg = new Vegetable(base.itemPrice, base.itemSection, base.itemBrand, base.itemName, base.itemReturnPolicy, itemExpirationDate, itemOrganic, itemNutritionFacts, itemIsLeafy);
                                             foodItemInventory.add(newVeg);
                                             break;
                                         case 3:
                                             //user adds a shelf stable item
                                             //initializing boolean values that are assigned in conditional statements
-                                            //getting price and round it to two decimal places
-                                            System.out.println("How much is your fruit going to cost?");
-                                            itemPrice = Math.round(scanner.nextDouble() * 100) /100;
-                                            scanner.nextLine();
-
-                                            //getting section for item
-                                            System.out.println("What section/aisle would your item be found on (e.g. A19)?");
-                                            itemSection = scanner.nextLine();
-
-                                            //getting brand of item
-                                            System.out.println("What is the brand of the item?");
-                                            itemBrand = scanner.nextLine();
-
-                                            //getting name of item
-                                            System.out.println("What is the name of the item?");
-                                            itemName = scanner.nextLine();
-
-                                            //getting return policy of item
-                                            System.out.println("What is the item's return policy?");
-                                            itemReturnPolicy = scanner.nextLine();
 
                                             //getting expiration date of item
                                             System.out.println("What is the expiration date for your item (MM-DD-YYYY)?");
@@ -298,7 +241,7 @@ public class WQSHachichoDanksMiller{
                                             System.out.println("How is the item packaged/stored (e.g boxed, canned, etc.)");
                                             String itemBoxedOrCanned = scanner.nextLine();
 
-                                            ShelfStable newShelfStable = new ShelfStable(itemPrice, itemSection, itemBrand, itemName, itemReturnPolicy, itemExpirationDate, itemOrganic, itemNutritionFacts, itemBoxedOrCanned);
+                                            ShelfStable newShelfStable = new ShelfStable(base.itemPrice, base.itemSection, base.itemBrand, base.itemName, base.itemReturnPolicy, itemExpirationDate, itemOrganic, itemNutritionFacts, itemBoxedOrCanned);
                                             foodItemInventory.add(newShelfStable);
                                             break;
 
@@ -670,6 +613,37 @@ public class WQSHachichoDanksMiller{
                     break;
             }
         }
+    }
+
+    // Helper functions for reusiblity
+    static class CommonFields {
+        double itemPrice;
+        String itemSection;
+        String itemBrand;
+        String itemName;
+        String itemReturnPolicy;
+    }
+    static CommonFields promptCommonFields(Scanner scanner) {
+        CommonFields f = new CommonFields();
+
+        // getting price and round it to two decimal places
+        System.out.println("How much is your item going to cost?");
+        f.itemPrice = Math.round(scanner.nextDouble() * 100) / 100.0;
+        scanner.nextLine();
+
+        System.out.println("What section/aisle would your item be found on (e.g. A19)?");
+        f.itemSection = scanner.nextLine();
+
+        System.out.println("What is the brand of the item?");
+        f.itemBrand = scanner.nextLine();
+
+        System.out.println("What is the name of the item?");
+        f.itemName = scanner.nextLine();
+
+        System.out.println("What is the item's return policy?");
+        f.itemReturnPolicy = scanner.nextLine();
+
+        return f;
     }
 
 }
