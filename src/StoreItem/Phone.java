@@ -1,4 +1,4 @@
-package StoreItem.ElectronicsItem;
+package StoreItem;
 
 
 public class Phone extends ElectronicsItem {

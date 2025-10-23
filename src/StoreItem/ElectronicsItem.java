@@ -1,6 +1,4 @@
-package StoreItem.ElectronicsItem;
-
-import StoreItem.StoreItem;
+package StoreItem;
 
 public class ElectronicsItem extends StoreItem {
     //initializing variables

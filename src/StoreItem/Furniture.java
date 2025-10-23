@@ -1,4 +1,4 @@
-package StoreItem.HouseholdItem;
+package StoreItem;
 
 public class Furniture extends HouseholdItem {
     //Initializing variables

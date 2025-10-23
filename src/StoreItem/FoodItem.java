@@ -1,6 +1,4 @@
-package StoreItem.FoodItem;
-
-import StoreItem.StoreItem;
+package StoreItem;
 
 
 public class FoodItem extends StoreItem {

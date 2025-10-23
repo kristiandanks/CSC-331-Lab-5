@@ -1,4 +1,4 @@
-package StoreItem.ClothingItem;
+package StoreItem;
 
 public class Shoe extends ClothingItem{
     //Initializing variable
