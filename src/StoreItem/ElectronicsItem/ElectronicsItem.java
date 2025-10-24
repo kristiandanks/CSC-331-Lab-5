@@ -70,5 +70,14 @@ public class ElectronicsItem extends StoreItem {
     public void setScreenType(String screenType){
         this.screenType = screenType;
     }
+
+    @Override
+    public String toString() {
+        return super.toString() + String.format(
+                " | category=Electronics | wattage=%dW | screenType=%s",
+                getWattage(),
+                getScreenType()
+        );
+    }
 }
 
