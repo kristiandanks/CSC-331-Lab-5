@@ -4,7 +4,7 @@ package StoreItem;
  *
  *
  *
- * @author Patrick Hachicho
+ * @author Patrick Hachicho, Kristian Danks, Kavi Miller
  * @date 09/25/2025
  * @section CSC-331-003
  */
@@ -213,9 +213,6 @@ public class WQSHachichoDanksMiller
                                     System.out.println("What are the nutrition facts for your item?");
                                     String itemNutritionFacts = scanner.nextLine();
 
-                                    // Get the common fields
-                                    //CommonFields base = promptCommonFields(scanner);
-
                                     //branching logic based on new item type
                                     switch (addTypeSelection)
                                     {
@@ -297,7 +294,6 @@ public class WQSHachichoDanksMiller
                                     System.out.println("What is the screen type of the item?");
                                     String itemScreenType = scanner.nextLine();
 
-                                    CommonFields base = promptCommonFields(scanner);
                                     //branching logic based on new item type
                                     switch (addTypeSelection)
                                     {
@@ -719,53 +715,5 @@ public class WQSHachichoDanksMiller
 
             }
         }
-    }
-
-    // Helper functions for reusability
-    static class CommonFields
-    {
-        double itemPrice;
-        String itemSection;
-        String itemBrand;
-        String itemName;
-        String itemReturnPolicy;
-    }
-
-    /**
-     *
-     * @param scanner
-     * @return the commonily ask fields
-     */
-    static CommonFields promptCommonFields(Scanner scanner)
-    {
-        CommonFields f = new CommonFields();
-        // getting price and round it to two decimal places
-        System.out.println("How much is your item going to cost?");
-        f.itemPrice = Math.round(scanner.nextDouble() * 100) / 100.0;
-        scanner.nextLine();
-        System.out.println("What section/aisle would your item be found on (e.g. A19)?");
-        f.itemSection = scanner.nextLine();
-        System.out.println("What is the brand of the item?");
-        f.itemBrand = scanner.nextLine();
-        System.out.println("What is the name of the item?");
-        f.itemName = scanner.nextLine();
-        System.out.println("What is the item's return policy?");
-        f.itemReturnPolicy = scanner.nextLine();
-
-        return f;
-    }
-
-    /**
-     *
-     * @param scanner
-     * @param prompt
-     * @return "y"
-     */
-    // WIP
-    static boolean askYesNo(Scanner scanner, String prompt)
-    {
-        System.out.println(prompt + " (y/n)");
-        String input = scanner.nextLine().trim().toLowerCase();
-        return input.equals("y");
     }
 }
