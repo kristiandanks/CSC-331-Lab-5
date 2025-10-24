@@ -44,4 +44,11 @@ public class Outerwear extends ClothingItem {
         this.hasZipper = hasZipper;
     }
 
+    @Override
+    public String toString() {
+        return super.toString() + String.format(
+                " | type=Outerwear | zipper=%s",
+                getHasZipper() ? "yes" : "no"
+        );
+    }
 }
