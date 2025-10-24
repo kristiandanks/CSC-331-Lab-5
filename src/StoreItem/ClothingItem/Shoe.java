@@ -44,4 +44,12 @@ public class Shoe extends ClothingItem {
         this.shoeType = shoeType;
     }
 
+    @Override
+    public String toString() {
+        return super.toString() + String.format(
+                " | type=Shoe | shoeType=%s",
+                getShoeType()
+        );
+    }
+
 }

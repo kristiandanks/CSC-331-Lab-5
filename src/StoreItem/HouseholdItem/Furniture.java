@@ -70,4 +70,13 @@ public class Furniture extends HouseholdItem {
     public void setMaterial (String material){
         this.material = material;
     }
+
+    @Override
+    public String toString() {
+        return super.toString() + String.format(
+                " | type=Furniture | weight=%.1f lbs | material=%s",
+                getWeight(),
+                getMaterial()
+        );
+    }
 }

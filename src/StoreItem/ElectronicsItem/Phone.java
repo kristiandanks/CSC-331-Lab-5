@@ -56,6 +56,13 @@ public class Phone extends ElectronicsItem {
         this.numOfCameras = numOfCameras;
     }
 
+    @Override
+    public String toString() {
+        return super.toString() + String.format(
+                " | type=Phone | cameras=%d",
+                getNumOfCameras()
+        );
+    }
     //used for testing functionality of Phone getters and setters
     /**
      * Main method for testing

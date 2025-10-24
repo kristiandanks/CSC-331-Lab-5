@@ -78,4 +78,14 @@ public class ClothingItem extends StoreItem {
     public void setSize (String size){
         this.size = size;
     }
+
+    @Override
+    public String toString() {
+        return super.toString() + String.format(
+                " | category=Clothing | material=%s | color=%s | size=%s",
+                getMaterial(),
+                getColor(),
+                getSize()
+        );
+    }
 }

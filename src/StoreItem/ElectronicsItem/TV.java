@@ -80,6 +80,16 @@ public class TV extends ElectronicsItem {
         this.surroundSound = surroundSound;
     }
 
+    @Override
+    public String toString() {
+        return super.toString() + String.format(
+                " | type=TV | smart=%s | flatScreen=%s | surroundSound=%s",
+                getIsSmart() ? "yes" : "no",
+                getIsFlatScreen() ? "yes" : "no",
+                getSurroundSound() ? "yes" : "no"
+        );
+    }
+
     //testing to ensure getters and setters work properly
     /**
      * Main method for testing

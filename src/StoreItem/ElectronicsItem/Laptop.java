@@ -88,6 +88,15 @@ public class Laptop extends ElectronicsItem {
 
         this.numOfPorts = numOfPorts;
     }
+    @Override
+    public String toString() {
+        return super.toString() + String.format(
+                " | type=Laptop | cpu=%s | touchScreen=%s | ports=%d",
+                getCpu(),
+                getTouchScreen() ? "yes" : "no",
+                getNumOfPorts()
+        );
+    }
 
 //    /**
 //     * Main method for testing getters

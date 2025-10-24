@@ -44,4 +44,14 @@ public class Vegetable extends FoodItem {
         this.isLeafy = isLeafy;
     }
 
+    @Override
+    public String toString() {
+        return super.toString() + String.format(
+                " | type=Vegetable | exp=%s | organic=%s | nutrition=%s | leafy=%s",
+                getExpirationDate(),
+                getOrganic() ? "yes" : "no",
+                getNutritionFacts(),
+                getIsLeafy() ? "yes" : "no"
+        );
+    }
 }
