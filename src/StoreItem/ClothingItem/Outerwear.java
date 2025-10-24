@@ -11,15 +11,16 @@ public class Outerwear extends ClothingItem {
      * @param brand String
      * @param name String
      * @param returnPolicy String
+     * @param description String
      * @param material String
      * @param color String
      * @param size String
      * @param hasZipper boolean
      */
 
-    public Outerwear(double price, String section, String brand, String name, String returnPolicy,
+    public Outerwear(double price, String section, String brand, String name, String returnPolicy, String description,
                  String material, String color, String size, boolean hasZipper) {
-        super(price, section, brand, name, returnPolicy, material, color, size);
+        super(price, section, brand, name, returnPolicy, description, material, color, size);
         this.hasZipper = hasZipper;
     }
 

@@ -11,15 +11,16 @@ public class Shirt extends ClothingItem {
      * @param brand String
      * @param name String
      * @param returnPolicy String
+     * @param description String
      * @param material String
      * @param color String
      * @param size String
      * @param neckHoleType String
      */
 
-    public Shirt(double price, String section, String brand, String name, String returnPolicy,
+    public Shirt(double price, String section, String brand, String name, String returnPolicy, String description,
                      String material, String color, String size, String neckHoleType) {
-        super(price, section, brand, name, returnPolicy, material, color, size);
+        super(price, section, brand, name, returnPolicy, description, material, color, size);
         this.neckHoleType = neckHoleType;
     }
 
