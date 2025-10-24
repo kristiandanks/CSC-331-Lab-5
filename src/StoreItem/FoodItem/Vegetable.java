@@ -47,10 +47,7 @@ public class Vegetable extends FoodItem {
     @Override
     public String toString() {
         return super.toString() + String.format(
-                " | type=Vegetable | exp=%s | organic=%s | nutrition=%s | leafy=%s",
-                getExpirationDate(),
-                getOrganic() ? "yes" : "no",
-                getNutritionFacts(),
+                " | type=Vegetable | leafy=%s",
                 getIsLeafy() ? "yes" : "no"
         );
     }

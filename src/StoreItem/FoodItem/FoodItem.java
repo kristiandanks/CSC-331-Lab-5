@@ -81,4 +81,14 @@ public class FoodItem extends StoreItem {
     public void setNutritionFacts(String nutritionFacts){
         this.nutritionFacts = nutritionFacts;
     }
+
+    @Override
+    public String toString() {
+        return super.toString() + String.format(
+                " | type=FoodItem | exp=%s | organic=%s | nutrition=%s",
+                getExpirationDate(),
+                getOrganic() ? "yes" : "no",
+                getNutritionFacts()
+        );
+    }
 }

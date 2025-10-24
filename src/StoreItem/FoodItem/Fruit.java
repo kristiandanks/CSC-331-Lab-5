@@ -49,10 +49,7 @@ public class Fruit extends FoodItem {
     @Override
     public String toString() {
         return super.toString() + String.format(
-                " | type=Fruit | exp=%s | organic=%s | nutrition=%s | berry=%s",
-                getExpirationDate(),
-                getOrganic() ? "yes" : "no",
-                getNutritionFacts(),
+                " | type=Fruit | berry=%s",
                 getIsBerry() ? "yes" : "no"
         );
     }
