@@ -11,14 +11,15 @@ public class CleaningSupply extends HouseholdItem {
      * @param brand String
      * @param name String
      * @param returnPolicy String
+     * @param description String
      * @param volume String
      * @param intendedUse String
      * @param activeChemical String
      */
 
     public CleaningSupply(double price, String section, String brand, String name, String returnPolicy
-            , String volume, String intendedUse, String activeChemical) {
-        super(price, section, brand, name, returnPolicy, volume, intendedUse);
+            , String description, String volume, String intendedUse, String activeChemical) {
+        super(price, section, brand, name, returnPolicy, description, volume, intendedUse);
         this.activeChemical = activeChemical;
     }
 

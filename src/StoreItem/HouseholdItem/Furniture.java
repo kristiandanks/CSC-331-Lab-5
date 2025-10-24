@@ -12,6 +12,7 @@ public class Furniture extends HouseholdItem {
      * @param brand String
      * @param name String
      * @param returnPolicy String
+     * @param description String
      * @param volume String
      * @param intendedUse String
      * @param weight double
@@ -19,8 +20,8 @@ public class Furniture extends HouseholdItem {
      */
 
     public Furniture(double price, String section, String brand, String name, String returnPolicy
-            , String volume, String intendedUse, double weight, String material) {
-        super(price, section, brand, name, returnPolicy, volume, intendedUse);
+            , String description, String volume, String intendedUse, double weight, String material) {
+        super(price, section, brand, name, returnPolicy, description, volume, intendedUse);
 
         //validating weight input
         if (weight <= 0){

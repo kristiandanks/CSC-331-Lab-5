@@ -14,13 +14,14 @@ public class HouseholdItem extends StoreItem {
      * @param brand String
      * @param name String
      * @param returnPolicy String
+     * @param description String
      * @param volume String
      * @param intendedUse String
      */
 
     public HouseholdItem(double price, String section, String brand, String name, String returnPolicy
-                            , String volume, String intendedUse) {
-        super(price, section, brand, name, returnPolicy);
+                            , String description, String volume, String intendedUse) {
+        super(price, section, brand, name, returnPolicy, description);
         this.volume = volume;
         this.intendedUse = intendedUse;
     }

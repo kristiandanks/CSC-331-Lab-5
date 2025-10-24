@@ -11,15 +11,16 @@ public class Shoe extends ClothingItem {
      * @param brand String
      * @param name String
      * @param returnPolicy String
+     * @param description String
      * @param material String
      * @param color String
      * @param size String
      * @param shoeType String
      */
 
-    public Shoe(double price, String section, String brand, String name, String returnPolicy,
+    public Shoe(double price, String section, String brand, String name, String returnPolicy, String description,
                  String material, String color, String size, String shoeType) {
-        super(price, section, brand, name, returnPolicy, material, color, size);
+        super(price, section, brand, name, returnPolicy, description, material, color, size);
         this.shoeType = shoeType;
     }
 

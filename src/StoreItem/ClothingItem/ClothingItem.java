@@ -15,14 +15,15 @@ public class ClothingItem extends StoreItem {
      * @param brand String
      * @param name String
      * @param returnPolicy String
+     * @param description String
      * @param material String
      * @param color String
      * @param size String
      */
 
-    public ClothingItem(double price, String section, String brand, String name, String returnPolicy,
+    public ClothingItem(double price, String section, String brand, String name, String returnPolicy, String description,
                     String material, String color, String size) {
-        super(price, section, brand, name, returnPolicy);
+        super(price, section, brand, name, returnPolicy, description);
         this.material = material;
         this.color = color;
         this.size = size;
