@@ -131,7 +131,7 @@ public class WQSHachichoDanksMiller
 
                         //user chooses to add Household item
                         case 4:
-                            System.out.printf("What item type would you like to add?%n1) Furniture%n2) Cleaning supply");
+                            System.out.printf("What item type would you like to add?%n1) Furniture%n2) Cleaning supply%n");
                             addTypeSelection = scanner.nextInt();
                             scanner.nextLine();
                             break;
@@ -586,9 +586,10 @@ public class WQSHachichoDanksMiller
                     //Initializing variables
                     boolean selling = true;
                     String[] shoppingCart = new String[30];
+                    StoreItem[] shoppingCartItems = new StoreItem[30];
                     int itemNumber = 1;
                     String checkoutString;
-                    int totalCost = 0;
+                    double totalCost = 0;
                     ArrayList<StoreItem> foodItemInventoryTemp = new ArrayList<>(foodItemInventory);
                     ArrayList<StoreItem> electronicsItemInventoryTemp = new ArrayList<>(electronicsItemInventory);
                     ArrayList<StoreItem> clothingItemInventoryTemp = new ArrayList<>(clothingItemInventory);
@@ -614,6 +615,7 @@ public class WQSHachichoDanksMiller
                                     if (foodItemInventoryTemp.get(i).getName().equals(sellName)) {
                                         System.out.println("Added " + sellName + " to cart");
                                         shoppingCart[itemNumber-1] = sellName;
+                                        shoppingCartItems[itemNumber-1] = foodItemInventoryTemp.get(i);
                                         found = true;
                                         StoreItem item = foodItemInventoryTemp.get(i);
 
@@ -630,6 +632,7 @@ public class WQSHachichoDanksMiller
                                     if (electronicsItemInventoryTemp.get(i).getName().equals(sellName)) {
                                         System.out.println("Added " + sellName + " to cart");
                                         shoppingCart[itemNumber-1] = sellName;
+                                        shoppingCartItems[itemNumber-1] = electronicsItemInventoryTemp.get(i);
                                         found = true;
                                         StoreItem item = electronicsItemInventoryTemp.get(i);
                                         totalCost += item.getPrice() + item.getPrice()*.07;
@@ -644,6 +647,7 @@ public class WQSHachichoDanksMiller
                                     if (clothingItemInventoryTemp.get(i).getName().equals(sellName)) {
                                         System.out.println("Added " + sellName + " to cart");
                                         shoppingCart[itemNumber-1] = sellName;
+                                        shoppingCartItems[itemNumber-1] = clothingItemInventoryTemp.get(i);
                                         found = true;
                                         StoreItem item = clothingItemInventoryTemp.get(i);
                                         totalCost += item.getPrice() + item.getPrice()*.07;
@@ -658,6 +662,7 @@ public class WQSHachichoDanksMiller
                                     if (householdItemInventoryTemp.get(i).getName().equals(sellName)) {
                                         System.out.println("Added " + sellName + " to cart");
                                         shoppingCart[itemNumber-1] = sellName;
+                                        shoppingCartItems[itemNumber-1] = householdItemInventoryTemp.get(i);
                                         found = true;
                                         StoreItem item = householdItemInventory.get(i);
                                         totalCost += item.getPrice() + item.getPrice()*.07;
@@ -680,15 +685,18 @@ public class WQSHachichoDanksMiller
                         for (String item : shoppingCart) {
                             System.out.println(item);
                         }
-                        System.out.printf("Total cost of the cart: %d", totalCost);
+                        System.out.printf("Total cost of the cart: %d ", totalCost);
 
                         // Asking the user if they want to continue shopping
                         System.out.println("Type done to check out or enter any other input to continue shopping");
                         checkoutString = scanner.nextLine();
-                        if (checkoutString == "done"){
+                        if (checkoutString.equals("done")){
                             selling = false;
                         }
-                        break;
+                    }
+
+                    for (int i = 0; i < itemNumber-1; i++){
+                        System.out.printf("The return policy for %s is %s.%n", shoppingCartItems[i].getName(), shoppingCartItems[i].getReturnPolicy());
                     }
                     //Updating the inventory
                     foodItemInventory.clear();
