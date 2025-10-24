@@ -7,6 +7,7 @@ public class StoreItem {
     private String brand;
     private String name;
     private String returnPolicy;
+    private String description;
 
     //Constructor
     /**
@@ -16,8 +17,9 @@ public class StoreItem {
      * @param brand String
      * @param name String
      * @param returnPolicy String
+     * @param description String
      */
-    public StoreItem(double price, String section, String brand, String name, String returnPolicy){
+    public StoreItem(double price, String section, String brand, String name, String returnPolicy, String description){
 
         //validating price input
         if (price < 0){
@@ -29,6 +31,7 @@ public class StoreItem {
         this.brand = brand;
         this.name = name;
         this.returnPolicy = returnPolicy;
+        this.description = description;
     }
 
     //Getters
@@ -67,6 +70,12 @@ public class StoreItem {
     public String getReturnPolicy(){
         return returnPolicy;
     }
+
+    /**
+     *
+     * @return description String
+     */
+    public String getDescription() { return description;}
 
     //Setters
     /**
@@ -109,11 +118,17 @@ public class StoreItem {
         this.returnPolicy = returnPolicy;
     }
 
+    /**
+     *
+     * @param description String
+     */
+    public void setDescription(String description) {this.description = description;}
+
     @Override
     public String toString() {
         return String.format(
-                "%s | brand=%s | section=%s | $%.2f | policy=%s",
-                name, brand, section, price, returnPolicy
+                "%s | brand=%s | section=%s | $%.2f | policy=%s | description=%s",
+                name, brand, section, price, returnPolicy, description
         );
     }
 }
