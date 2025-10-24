@@ -8,6 +8,22 @@ package StoreItem;
  * @date 09/25/2025
  * @section CSC-331-003
  */
+import StoreItem.ClothingItem.ClothingItem;
+import StoreItem.ElectronicsItem.ElectronicsItem;
+import StoreItem.ElectronicsItem.Laptop;
+import StoreItem.ElectronicsItem.Phone;
+import StoreItem.ElectronicsItem.TV;
+import StoreItem.FoodItem.FoodItem;
+import StoreItem.FoodItem.Fruit;
+import StoreItem.FoodItem.ShelfStable;
+import StoreItem.FoodItem.Vegetable;
+import StoreItem.HouseholdItem.HouseholdItem;
+import StoreItem.ClothingItem.Shirt;
+import StoreItem.ClothingItem.Outerwear;
+import StoreItem.ClothingItem.Shoe;
+import StoreItem.HouseholdItem.CleaningSupply;
+import StoreItem.HouseholdItem.Furniture;
+
 import java.util.Scanner;
 import java.util.ArrayList;
 
@@ -196,12 +212,14 @@ public class WQSHachichoDanksMiller
                                     {
                                         itemOrganic = false;
                                     }
-
                                     //getting nutrition facts of item
                                     System.out.println("What are the nutrition facts for your item?");
                                     String itemNutritionFacts = scanner.nextLine();
 
-                                    //branching to get attributes of specific type chosen
+                                    // Get the common fields
+                                    //CommonFields base = promptCommonFields(scanner);
+
+                                    //branching logic based on new item type
                                     switch (addTypeSelection)
                                     {
                                         //user chooses to add fruit
@@ -209,7 +227,7 @@ public class WQSHachichoDanksMiller
                                             //initializing boolean berry variable
                                             boolean itemBerry;
 
-                                            //user inputs if item is berry
+                                            //getting if item is a berry
                                             System.out.println("Is the item a berry (y/n)?");
                                             if (scanner.nextLine().equals("y")){
                                                 itemBerry = true;
@@ -226,13 +244,15 @@ public class WQSHachichoDanksMiller
                                             {
                                                 System.out.println(e);
                                             } finally { break;}
-                                        //User chooses to add a vegetable
+                                        //user is adding a vegetable
                                         case 2:
                                             //initializing boolean leafy variable
                                             boolean itemLeafy;
 
                                             //user inputs if item is leafy
                                             System.out.println("Is the vegetable leafy (y/n)?");
+
+                                            //item is leafy
                                             if (scanner.nextLine().equals("y"))
                                             {
                                                 itemLeafy = true;
@@ -271,7 +291,6 @@ public class WQSHachichoDanksMiller
                                 //user chooses to add Electronic item
                                 case 2:
                                     //getting attributes of all electronic items
-
                                     //getting wattage of item
                                     System.out.println("What is the wattage of the item (in watts)?");
                                     int itemWattage = scanner.nextInt();
@@ -281,7 +300,8 @@ public class WQSHachichoDanksMiller
                                     System.out.println("What is the screen type of the item?");
                                     String itemScreenType = scanner.nextLine();
 
-                                    //branching based on item type
+                                    CommonFields base = promptCommonFields(scanner);
+                                    //branching logic based on new item type
                                     switch (addTypeSelection)
                                     {
                                         //user chooses to add Laptop
@@ -307,7 +327,7 @@ public class WQSHachichoDanksMiller
                                             {
                                                 itemTouchscreen = false;
                                             }
-
+                                            
                                             //attempting to create and add item, catch invalid numerical inputs
                                             try
                                             {
@@ -362,13 +382,13 @@ public class WQSHachichoDanksMiller
                                             {
                                                 System.out.println(e);
                                             } break;
+                                            
                                         //user chooses to add Phone
                                         case 3:
                                             //getting of number of cameras phone has
                                             System.out.println("How many cameras does the phone have?");
                                             int itemNumOfCameras = scanner.nextInt();
                                             scanner.nextLine();
-
                                             //attempting to create and add item, catch invalid numerical inputs
                                             try
                                             {
@@ -506,8 +526,6 @@ public class WQSHachichoDanksMiller
                                             {
                                                 System.out.println(e);
                                             }
-
-
                                     }
 
                             }
@@ -528,15 +546,232 @@ public class WQSHachichoDanksMiller
                             continueAdding = false;
                         }
                     } while (continueAdding);
+                    break;
                     //user chooses to sell
                 case 2:
-                    break;
-                //user chooses to end program
+                    //receiving user input to add, sell, or end
+                    //displaying inventory
+                    System.out.println("The food inventory currently contains: ");
+                    for (StoreItem item: foodItemInventory) {
+                        System.out.println("------------------------------------------------------------");
+                        System.out.println(item.getName());
+                        System.out.println(item.getBrand());
+                        System.out.println(item.getPrice());
+                        System.out.println(item.getReturnPolicy());
+                        }
+                    System.out.println("The electronics inventory currently contains: ");
+                    for (StoreItem item: electronicsItemInventory){
+                        System.out.println("------------------------------------------------------------");
+                        System.out.println(item.getName());
+                        System.out.println(item.getBrand());
+                        System.out.println(item.getPrice());
+                        System.out.println(item.getReturnPolicy());
+                    }
+                    System.out.println("The clothing inventory currently contains: ");
+                    for (StoreItem item: clothingItemInventory){
+                        System.out.println("------------------------------------------------------------");
+                        System.out.println(item.getName());
+                        System.out.println(item.getBrand());
+                        System.out.println(item.getPrice());
+                        System.out.println(item.getReturnPolicy());
+                    }
+                    System.out.println("The household inventory currently contains: ");
+                    for (StoreItem item: householdItemInventory){
+                        System.out.println("------------------------------------------------------------");
+                        System.out.println(item.getName());
+                        System.out.println(item.getBrand());
+                        System.out.println(item.getPrice());
+                        System.out.println(item.getReturnPolicy());
+                    }
+                    //Initializing variables
+                    boolean selling = true;
+                    String[] shoppingCart = new String[30];
+                    int itemNumber = 1;
+                    String checkoutString;
+                    int totalCost = 0;
+                    ArrayList<StoreItem> foodItemInventoryTemp = new ArrayList<>(foodItemInventory);
+                    ArrayList<StoreItem> electronicsItemInventoryTemp = new ArrayList<>(electronicsItemInventory);
+                    ArrayList<StoreItem> clothingItemInventoryTemp = new ArrayList<>(clothingItemInventory);
+                    ArrayList<StoreItem> householdItemInventoryTemp = new ArrayList<>(householdItemInventory);
+
+
+                    System.out.printf("\n\nWhich inventory do you want to sell from:%n1) Food%n2) Electronics%n3) Clothing%n4) Household%n");
+                    int sellCategory = scanner.nextInt();
+                    scanner.nextLine();
+
+                    while (selling) {
+                        // ask for item name
+                        System.out.println("Enter name of the item to buy (You can add up to 30 items in your cart):");
+                        String sellName = scanner.nextLine();
+
+                        //boolean to see if item is in inventory
+                        boolean found = false;
+
+                        switch (sellCategory) {
+                            case 1: // Food
+                                //Removing the item from the inventory
+                                for (int i = 0; i < foodItemInventoryTemp.size(); i++) {
+                                    if (foodItemInventoryTemp.get(i).getName().equals(sellName)) {
+                                        System.out.println("Added " + sellName + " to cart");
+                                        shoppingCart[itemNumber-1] = sellName;
+                                        found = true;
+                                        StoreItem item = foodItemInventoryTemp.get(i);
+
+                                        //Food tax is .02 and the rest is .07
+                                        totalCost += item.getPrice() + item.getPrice()*.02;
+                                        foodItemInventoryTemp.remove(i);
+                                        break;
+                                    }
+                                }
+                                break;
+                            case 2: // Electronics
+                                //Removing the item from the inventory
+                                for (int i = 0; i < electronicsItemInventoryTemp.size(); i++) {
+                                    if (electronicsItemInventoryTemp.get(i).getName().equals(sellName)) {
+                                        System.out.println("Added " + sellName + " to cart");
+                                        shoppingCart[itemNumber-1] = sellName;
+                                        found = true;
+                                        StoreItem item = electronicsItemInventoryTemp.get(i);
+                                        totalCost += item.getPrice() + item.getPrice()*.07;
+                                        electronicsItemInventoryTemp.remove(i);
+                                        break;
+                                    }
+                                }
+                                break;
+                            case 3: //Clothing
+                                //Removing the item from the inventory
+                                for (int i = 0; i < clothingItemInventoryTemp.size(); i++) {
+                                    if (clothingItemInventoryTemp.get(i).getName().equals(sellName)) {
+                                        System.out.println("Added " + sellName + " to cart");
+                                        shoppingCart[itemNumber-1] = sellName;
+                                        found = true;
+                                        StoreItem item = clothingItemInventoryTemp.get(i);
+                                        totalCost += item.getPrice() + item.getPrice()*.07;
+                                        clothingItemInventoryTemp.remove(i);
+                                        break;
+                                    }
+                                }
+                                break;
+                            case 4: //Household
+                                //Removing the item from the inventory
+                                for (int i = 0; i < householdItemInventoryTemp.size(); i++) {
+                                    if (householdItemInventoryTemp.get(i).getName().equals(sellName)) {
+                                        System.out.println("Added " + sellName + " to cart");
+                                        shoppingCart[itemNumber-1] = sellName;
+                                        found = true;
+                                        StoreItem item = householdItemInventory.get(i);
+                                        totalCost += item.getPrice() + item.getPrice()*.07;
+                                        clothingItemInventoryTemp.remove(i);
+                                        break;
+                                    }
+                                }
+                                break;
+
+                        }
+                        // If the user input isn't found in the inventory then it prompts the user to enter an item in the inventory
+                        if (found == false){
+                            System.out.println("Item not found please enter an item in the inventory");
+                        }
+                        // Updating the item number if it was found in the inventory
+                        if (found == true) {
+                            itemNumber+=1;
+                        }
+                        System.out.println("----- Current shopping cart: -----");
+                        for (String item : shoppingCart) {
+                            System.out.println(item);
+                        }
+                        System.out.printf("Total cost of the cart: %d", totalCost);
+
+                        // Asking the user if they want to continue shopping
+                        System.out.println("Type done to check out or enter any other input to continue shopping");
+                        checkoutString = scanner.nextLine();
+                        if (checkoutString == "done"){
+                            selling = false;
+                        }
+                        break;
+                    }
+                    //Updating the inventory
+                    foodItemInventory.clear();
+                    foodItemInventory.addAll(foodItemInventoryTemp);
+                    electronicsItemInventory.clear();
+                    electronicsItemInventory.addAll(electronicsItemInventoryTemp);
+                    clothingItemInventory.clear();
+                    clothingItemInventory.addAll(clothingItemInventoryTemp);
+                    householdItemInventory.clear();
+                    householdItemInventory.addAll(householdItemInventoryTemp);
+
+                    //Displaying the updated inventory
+                    System.out.println("The food inventory currently contains: ");
+                    for (StoreItem item: foodItemInventory) {
+                        System.out.println(item.getName());
+                    }
+                    System.out.println("The electronics inventory currently contains: ");
+                    for (StoreItem item: electronicsItemInventory){
+                        System.out.println(item.getName());
+                    }
+                    System.out.println("The clothing inventory currently contains: ");
+                    for (StoreItem item: clothingItemInventory){
+                        System.out.println(item.getName());
+                    }
+                    System.out.println("The household inventory currently contains: ");
+                    for (StoreItem item: householdItemInventory){
+                        System.out.println(item.getName());
+                    }
+
+                // user chooses to end program
                 default:
                     running = false;
                     break;
 
             }
         }
+    }
+
+    // Helper functions for reusability
+    static class CommonFields
+    {
+        double itemPrice;
+        String itemSection;
+        String itemBrand;
+        String itemName;
+        String itemReturnPolicy;
+    }
+
+    /**
+     *
+     * @param scanner
+     * @return the commonily ask fields
+     */
+    static CommonFields promptCommonFields(Scanner scanner)
+    {
+        CommonFields f = new CommonFields();
+        // getting price and round it to two decimal places
+        System.out.println("How much is your item going to cost?");
+        f.itemPrice = Math.round(scanner.nextDouble() * 100) / 100.0;
+        scanner.nextLine();
+        System.out.println("What section/aisle would your item be found on (e.g. A19)?");
+        f.itemSection = scanner.nextLine();
+        System.out.println("What is the brand of the item?");
+        f.itemBrand = scanner.nextLine();
+        System.out.println("What is the name of the item?");
+        f.itemName = scanner.nextLine();
+        System.out.println("What is the item's return policy?");
+        f.itemReturnPolicy = scanner.nextLine();
+
+        return f;
+    }
+
+    /**
+     *
+     * @param scanner
+     * @param prompt
+     * @return "y"
+     */
+    // WIP
+    static boolean askYesNo(Scanner scanner, String prompt)
+    {
+        System.out.println(prompt + " (y/n)");
+        String input = scanner.nextLine().trim().toLowerCase();
+        return input.equals("y");
     }
 }

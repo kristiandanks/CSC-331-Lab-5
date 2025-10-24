@@ -1,5 +1,7 @@
-package StoreItem;
+package StoreItem.FoodItem;
 
+
+import StoreItem.StoreItem;
 
 public class FoodItem extends StoreItem {
     //Initializing variables

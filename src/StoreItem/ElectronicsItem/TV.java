@@ -1,7 +1,7 @@
-package StoreItem;
+package StoreItem.ElectronicsItem;
 
 
-public class TV extends ElectronicsItem{
+public class TV extends ElectronicsItem {
     //initializing variables
     private boolean isSmart;
     private boolean isFlatScreen;
