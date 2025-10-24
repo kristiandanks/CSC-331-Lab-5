@@ -60,4 +60,13 @@ public class HouseholdItem extends StoreItem {
     public void setIntendedUse (String intendedUse){
         this.intendedUse = intendedUse;
     }
+
+    @Override
+    public String toString() {
+        return super.toString() + String.format(
+                " | category=Household | volume=%s | use=%s",
+                getVolume(),
+                getIntendedUse()
+        );
+    }
 }
