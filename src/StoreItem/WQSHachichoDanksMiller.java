@@ -664,8 +664,8 @@ public class WQSHachichoDanksMiller
                             itemNumber+=1;
                         }
                         System.out.println("----- Current shopping cart: -----");
-                        for (String item : shoppingCart) {
-                            System.out.println(item);
+                        for (int i = 0; i < itemNumber-1; i++) {
+                            System.out.println(shoppingCart[i]);
                         }
                         System.out.printf("Total cost of the cart: %.2f ", totalCost);
 
