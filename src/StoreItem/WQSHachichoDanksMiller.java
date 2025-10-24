@@ -671,7 +671,7 @@ public class WQSHachichoDanksMiller
                         for (String item : shoppingCart) {
                             System.out.println(item);
                         }
-                        System.out.printf("Total cost of the cart: %d ", totalCost);
+                        System.out.printf("Total cost of the cart: %.2f ", totalCost);
 
                         // Asking the user if they want to continue shopping
                         System.out.println("Type done to check out or enter any other input to continue shopping");
