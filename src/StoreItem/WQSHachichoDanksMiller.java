@@ -98,7 +98,8 @@ public class WQSHachichoDanksMiller
                     System.out.println("The inventory currently contains: ");
                     for (StoreItem item: inventories.get(addCategorySelection-1))
                     {
-                        System.out.printf("%s%n",item.getName());
+                        System.out.println("------------------------------------------------------------");
+                        System.out.println(item);   // calls toString() polymorphically
                     }
 
                     //asking user what item type they want to add based on category
@@ -537,7 +538,8 @@ public class WQSHachichoDanksMiller
                             System.out.println("The inventory now contains: ");
                             for (StoreItem item : inventories.get(addCategorySelection-1))
                             {
-                                System.out.println(item.getName());
+                                System.out.println("------------------------------------------------------------");
+                                System.out.println(item);   // calls toString() polymorphically
                             }
                             continueAdding = false;
                         }
@@ -549,35 +551,23 @@ public class WQSHachichoDanksMiller
                     //displaying inventory
                     System.out.println("The food inventory currently contains: ");
                     for (StoreItem item: foodItemInventory) {
-                        System.out.println("------------------------------------------------------------");
-                        System.out.println(item.getName());
-                        System.out.println(item.getBrand());
-                        System.out.println(item.getPrice());
-                        System.out.println(item.getReturnPolicy());
+                        System.out.println("------------------------------------------------------------------------------------------------");
+                        System.out.println(item);   // polymorphic toString()
                         }
                     System.out.println("The electronics inventory currently contains: ");
                     for (StoreItem item: electronicsItemInventory){
-                        System.out.println("------------------------------------------------------------");
-                        System.out.println(item.getName());
-                        System.out.println(item.getBrand());
-                        System.out.println(item.getPrice());
-                        System.out.println(item.getReturnPolicy());
+                        System.out.println("---------------------------------------------------------------------------------");
+                        System.out.println(item);   // polymorphic toString()
                     }
                     System.out.println("The clothing inventory currently contains: ");
                     for (StoreItem item: clothingItemInventory){
-                        System.out.println("------------------------------------------------------------");
-                        System.out.println(item.getName());
-                        System.out.println(item.getBrand());
-                        System.out.println(item.getPrice());
-                        System.out.println(item.getReturnPolicy());
+                        System.out.println("-----------------------------------------------------------------------------------");
+                        System.out.println(item);   // polymorphic toString()
                     }
                     System.out.println("The household inventory currently contains: ");
                     for (StoreItem item: householdItemInventory){
-                        System.out.println("------------------------------------------------------------");
-                        System.out.println(item.getName());
-                        System.out.println(item.getBrand());
-                        System.out.println(item.getPrice());
-                        System.out.println(item.getReturnPolicy());
+                        System.out.println("----------------------------------------------------------------------------------");
+                        System.out.println(item);   // polymorphic toString()
                     }
                     //Initializing variables
                     boolean selling = true;
