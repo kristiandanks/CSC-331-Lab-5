@@ -424,7 +424,7 @@ public class WQSHachichoDanksMiller
                                             //attempting to create and add item, catch invalid numerical inputs
                                             try
                                             {
-                                                Shirt newShirt = new Shirt(itemPrice, itemSection, itemBrand, itemName, itemReturnPolicy, itemMaterial, itemColor, itemSize, itemNeckHoleType);
+                                                Shirt newShirt = new Shirt(itemPrice, itemSection, itemBrand, itemName, itemReturnPolicy, itemDescription, itemMaterial, itemColor, itemSize, itemNeckHoleType);
                                                 inventories.get(addCategorySelection-1).add(newShirt);
                                             } catch (IllegalArgumentException e)
                                             {
@@ -449,7 +449,7 @@ public class WQSHachichoDanksMiller
                                             //attempting to create and add item, catch invalid numerical inputs
                                             try
                                             {
-                                                Outerwear newOuterwear = new Outerwear(itemPrice, itemSection, itemBrand, itemName, itemReturnPolicy, itemMaterial, itemColor, itemSize, itemHasZipper);
+                                                Outerwear newOuterwear = new Outerwear(itemPrice, itemSection, itemBrand, itemName, itemReturnPolicy, itemDescription, itemMaterial, itemColor, itemSize, itemHasZipper);
                                                 inventories.get(addCategorySelection-1).add(newOuterwear);
                                             }
                                             catch (IllegalArgumentException e)
@@ -466,7 +466,7 @@ public class WQSHachichoDanksMiller
                                             //attempting to create and add item, catch invalid numerical inputs
                                             try
                                             {
-                                                Shoe newShoe = new Shoe(itemPrice, itemSection, itemBrand, itemName,itemReturnPolicy,itemMaterial,itemColor,itemSize,itemShoeType);
+                                                Shoe newShoe = new Shoe(itemPrice, itemSection, itemBrand, itemName,itemReturnPolicy, itemDescription,itemMaterial,itemColor,itemSize,itemShoeType);
                                                 inventories.get(addCategorySelection-1).add(newShoe);
                                             } catch (IllegalArgumentException e)
                                             {
@@ -502,7 +502,7 @@ public class WQSHachichoDanksMiller
                                             //attempting to create and add item, catch invalid numerical inputs
                                             try
                                             {
-                                                Furniture newFurniture = new Furniture(itemPrice, itemSection, itemBrand, itemName, itemReturnPolicy, itemVolume, itemIntendedUse, itemWeight, itemFurnitureMaterial);
+                                                Furniture newFurniture = new Furniture(itemPrice, itemSection, itemBrand, itemName, itemReturnPolicy, itemDescription, itemVolume, itemIntendedUse, itemWeight, itemFurnitureMaterial);
                                                 inventories.get(addCategorySelection-1).add(newFurniture);
                                             } catch (IllegalArgumentException e)
                                             {
@@ -517,7 +517,7 @@ public class WQSHachichoDanksMiller
                                             //attempting to create and add item, catch invalid numerical inputs
                                             try
                                             {
-                                                CleaningSupply newCleaningSupply = new CleaningSupply(itemPrice, itemSection, itemBrand, itemName, itemReturnPolicy, itemVolume, itemIntendedUse, itemActiveChemical);
+                                                CleaningSupply newCleaningSupply = new CleaningSupply(itemPrice, itemSection, itemBrand, itemName, itemReturnPolicy, itemDescription, itemVolume, itemIntendedUse, itemActiveChemical);
                                                 inventories.get(addCategorySelection-1).add(newCleaningSupply);
                                             } catch (IllegalArgumentException e)
                                             {
