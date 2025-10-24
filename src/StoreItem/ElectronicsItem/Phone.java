@@ -13,13 +13,14 @@ public class Phone extends ElectronicsItem {
      * @param brand        String
      * @param name         String
      * @param returnPolicy String
+     * @param description String
      * @param wattage      int
      * @param screenType   String
      * @param numOfCameras int
      */
-    public Phone(double price, String section, String brand, String name, String returnPolicy,
+    public Phone(double price, String section, String brand, String name, String returnPolicy, String description,
                  int wattage, String screenType, int numOfCameras) {
-        super(price, section, brand, name, returnPolicy, wattage, screenType);
+        super(price, section, brand, name, returnPolicy, description, wattage, screenType);
 
         //validating numOfCameras input
         if (numOfCameras < 0){

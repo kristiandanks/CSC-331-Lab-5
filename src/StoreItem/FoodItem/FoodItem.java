@@ -16,14 +16,15 @@ public class FoodItem extends StoreItem {
      * @param brand String
      * @param name String
      * @param returnPolicy String
-     * @param expirationDate int
+     * @param description String
+     * @param expirationDate String
      * @param organic boolean
      * @param nutritionFacts String
      */
 
-    public FoodItem(double price, String section, String brand, String name, String returnPolicy,
+    public FoodItem(double price, String section, String brand, String name, String returnPolicy, String description,
                     String expirationDate, boolean organic, String nutritionFacts) {
-        super(price, section, brand, name, returnPolicy);
+        super(price, section, brand, name, returnPolicy, description);
         this.expirationDate = expirationDate;
         this.organic = organic;
         this.nutritionFacts = nutritionFacts;

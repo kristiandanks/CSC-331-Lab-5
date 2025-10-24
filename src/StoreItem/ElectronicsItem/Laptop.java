@@ -14,15 +14,16 @@ public class Laptop extends ElectronicsItem {
      * @param brand String
      * @param name String
      * @param returnPolicy String
+     * @param description String
      * @param wattage int
      * @param screenType String
      * @param cpu String
      * @param touchScreen boolean
      * @param numOfPorts int
      */
-    public Laptop(double price, String section, String brand, String name, String returnPolicy, int wattage, String screenType,
+    public Laptop(double price, String section, String brand, String name, String returnPolicy, String description, int wattage, String screenType,
                   String cpu, boolean touchScreen, int numOfPorts){
-        super(price, section, brand, name, returnPolicy, wattage, screenType);
+        super(price, section, brand, name, returnPolicy, description, wattage, screenType);
 
         //validating numOfPorts input
         if (numOfPorts < 0) {

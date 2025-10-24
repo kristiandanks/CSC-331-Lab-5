@@ -13,15 +13,16 @@ public class Fruit extends FoodItem {
      * @param brand String
      * @param name String
      * @param returnPolicy String
+     * @param description String
      * @param expirationDate int
      * @param organic boolean
      * @param nutritionFacts String
      * @param isBerry boolean
      */
 
-    public Fruit(double price, String section, String brand, String name, String returnPolicy,
+    public Fruit(double price, String section, String brand, String name, String returnPolicy, String description,
                     String expirationDate, boolean organic, String nutritionFacts, boolean isBerry) {
-        super(price, section, brand, name, returnPolicy, expirationDate, organic, nutritionFacts);
+        super(price, section, brand, name, returnPolicy, description, expirationDate, organic, nutritionFacts);
         this.isBerry = isBerry;
     }
 

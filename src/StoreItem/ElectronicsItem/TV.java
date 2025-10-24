@@ -15,16 +15,17 @@ public class TV extends ElectronicsItem {
      * @param brand String
      * @param name String
      * @param returnPolicy String
+     * @param description String
      * @param wattage int
      * @param screenType String
      * @param isSmart boolean
      * @param isFlatScreen boolean
      * @param surroundSound boolean
      */
-    public TV(double price, String section, String brand, String name, String returnPolicy, int wattage, String screenType,
+    public TV(double price, String section, String brand, String name, String returnPolicy, String description, int wattage, String screenType,
               boolean isSmart, boolean isFlatScreen, boolean surroundSound){
 
-        super(price, section, brand, name, returnPolicy, wattage, screenType);
+        super(price, section, brand, name, returnPolicy, description, wattage, screenType);
         this.isSmart = isSmart;
         this.isFlatScreen = isFlatScreen;
         this.surroundSound = surroundSound;

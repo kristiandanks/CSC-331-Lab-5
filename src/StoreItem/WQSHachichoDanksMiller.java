@@ -185,6 +185,10 @@ public class WQSHachichoDanksMiller
                             System.out.println("What is the item's return policy?");
                             String itemReturnPolicy = scanner.nextLine();
 
+                            //getting description of item
+                            System.out.println("Please provide a description of the item.");
+                            String itemDescription = scanner.nextLine();
+
                             switch (addCategorySelection)
                             {
                                 //user chooses to add Food item
@@ -232,7 +236,7 @@ public class WQSHachichoDanksMiller
                                             //attempting to create item, catch error if invalid numerical inputs
                                             try
                                             {
-                                                Fruit newFruit = new Fruit(itemPrice, itemSection, itemBrand, itemName, itemReturnPolicy, itemExpirationDate, itemOrganic, itemNutritionFacts, itemBerry);
+                                                Fruit newFruit = new Fruit(itemPrice, itemSection, itemBrand, itemName, itemReturnPolicy, itemDescription, itemExpirationDate, itemOrganic, itemNutritionFacts, itemBerry);
                                                 inventories.get(addCategorySelection - 1).add(newFruit);
                                             } catch (IllegalArgumentException e)
                                             {
@@ -258,7 +262,7 @@ public class WQSHachichoDanksMiller
                                             //attempting to create item, catch error if invalid numerical inputs
                                             try
                                             {
-                                                Vegetable newVegetable = new Vegetable(itemPrice, itemSection, itemBrand, itemName, itemReturnPolicy, itemExpirationDate, itemOrganic, itemNutritionFacts, itemLeafy);
+                                                Vegetable newVegetable = new Vegetable(itemPrice, itemSection, itemBrand, itemName, itemReturnPolicy, itemDescription, itemExpirationDate, itemOrganic, itemNutritionFacts, itemLeafy);
                                                 inventories.get(addCategorySelection - 1).add(newVegetable);
                                             } catch (IllegalArgumentException e)
                                             {
@@ -274,7 +278,7 @@ public class WQSHachichoDanksMiller
                                             //attempting to create item, catch error if invalid numerical inputs
                                             try
                                             {
-                                                ShelfStable newShelfStable = new ShelfStable(itemPrice, itemSection, itemBrand, itemName, itemReturnPolicy, itemExpirationDate, itemOrganic, itemNutritionFacts, itemBoxedOrCanned);
+                                                ShelfStable newShelfStable = new ShelfStable(itemPrice, itemSection, itemBrand, itemName, itemReturnPolicy, itemExpirationDate, itemDescription,itemOrganic, itemNutritionFacts, itemBoxedOrCanned);
                                                 inventories.get(addCategorySelection-1).add(newShelfStable);
                                             } catch (IllegalArgumentException e)
                                             {
@@ -324,7 +328,7 @@ public class WQSHachichoDanksMiller
                                             //attempting to create and add item, catch invalid numerical inputs
                                             try
                                             {
-                                                Laptop newLaptop = new Laptop(itemPrice, itemSection, itemBrand, itemName, itemReturnPolicy, itemWattage, itemScreenType, itemCpu, itemTouchscreen, itemNumOfPorts);
+                                                Laptop newLaptop = new Laptop(itemPrice, itemSection, itemBrand, itemName, itemReturnPolicy, itemDescription, itemWattage, itemScreenType, itemCpu, itemTouchscreen, itemNumOfPorts);
                                                 inventories.get(addCategorySelection-1).add(newLaptop);
                                             } catch (IllegalArgumentException e)
                                             {
@@ -369,7 +373,7 @@ public class WQSHachichoDanksMiller
                                             //attempting to create and add item, catch invalid numerical inputs
                                             try
                                             {
-                                                TV newTV = new TV(itemPrice, itemSection, itemBrand, itemName, itemReturnPolicy, itemWattage, itemScreenType, itemIsSmart, itemIsFlatscreen, itemSurroundSound);
+                                                TV newTV = new TV(itemPrice, itemSection, itemBrand, itemName, itemReturnPolicy, itemDescription, itemWattage, itemScreenType, itemIsSmart, itemIsFlatscreen, itemSurroundSound);
                                                 inventories.get(addCategorySelection-1).add(newTV);
                                             } catch (IllegalArgumentException e)
                                             {
@@ -385,7 +389,7 @@ public class WQSHachichoDanksMiller
                                             //attempting to create and add item, catch invalid numerical inputs
                                             try
                                             {
-                                                Phone newPhone = new Phone(itemPrice,itemSection,itemBrand,itemName,itemReturnPolicy,itemWattage,itemScreenType,itemNumOfCameras);
+                                                Phone newPhone = new Phone(itemPrice,itemSection,itemBrand,itemName,itemReturnPolicy, itemDescription,itemWattage,itemScreenType,itemNumOfCameras);
                                                 inventories.get(addCategorySelection-1).add(newPhone);
                                             } catch (IllegalArgumentException e)
                                             {

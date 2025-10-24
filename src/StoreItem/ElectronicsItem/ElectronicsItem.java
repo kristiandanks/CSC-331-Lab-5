@@ -14,12 +14,13 @@ public class ElectronicsItem extends StoreItem {
      * @param brand String
      * @param name String
      * @param returnPolicy String
+     * @param description String
      * @param wattage int
      * @param screenType String
      */
-    public ElectronicsItem(double price, String section, String brand, String name, String returnPolicy,
+    public ElectronicsItem(double price, String section, String brand, String name, String returnPolicy, String description,
                            int wattage, String screenType){
-        super(price, section, brand, name, returnPolicy);
+        super(price, section, brand, name, returnPolicy, description);
 
         //validating wattage input
         if (wattage <= 0){
