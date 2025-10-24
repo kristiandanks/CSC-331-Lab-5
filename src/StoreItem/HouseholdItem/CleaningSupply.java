@@ -41,4 +41,12 @@ public class CleaningSupply extends HouseholdItem {
     public void setActiveChemical(String activeChemical){
         this.activeChemical = activeChemical;
     }
+
+    @Override
+    public String toString() {
+        return super.toString() + String.format(
+                " | type=CleaningSupply | activeChemical=%s",
+                getActiveChemical()
+        );
+    }
 }

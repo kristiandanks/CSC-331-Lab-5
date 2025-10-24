@@ -108,4 +108,12 @@ public class StoreItem {
     public void setReturnPolicy(String returnPolicy){
         this.returnPolicy = returnPolicy;
     }
+
+    @Override
+    public String toString() {
+        return String.format(
+                "%s | brand=%s | section=%s | $%.2f | policy=%s",
+                name, brand, section, price, returnPolicy
+        );
+    }
 }

@@ -44,4 +44,11 @@ public class Shirt extends ClothingItem {
         this.neckHoleType = neckHoleType;
     }
 
+    @Override
+    public String toString() {
+        return super.toString() + String.format(
+                " | type=Shirt | neckHoleType=%s",
+                getNeckHoleType()
+        );
+    }
 }

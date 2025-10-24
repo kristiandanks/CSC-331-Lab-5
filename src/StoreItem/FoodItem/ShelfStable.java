@@ -44,5 +44,14 @@ public class ShelfStable extends FoodItem {
         this.boxedOrCanned = boxedOrCanned;
     }
 
-
+    @Override
+    public String toString() {
+        return super.toString() + String.format(
+                " | type=ShelfStable | exp=%s | organic=%s | nutrition=%s | packaged=%s",
+                getExpirationDate(),
+                getOrganic() ? "yes" : "no",
+                getNutritionFacts(),
+                getBoxedOrCanned()
+        );
+    }
 }
